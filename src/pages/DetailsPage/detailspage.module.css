@@ -1,0 +1,45 @@
+.backgroundImage {
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.pageHolder {
+    width: 100%;
+    box-sizing: border-box;
+    background-size: 100%; 
+    background-repeat: no-repeat;
+}
+
+.backdropImg {
+    object-fit: contain;
+    display: block;
+    z-index: -1;
+    width: 100%;
+}
+
+.dataSet {
+    background-image: linear-gradient(#00000000, #060d17, #060d17);
+    box-sizing: border-box;
+    width: 100%;
+    padding: 400px 100px 0 100px;
+}
+
+.container {
+    background-color: #060d17;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+}
+
+
+@media (max-width: 480px) {
+    .dataSet {
+        padding: 90px 5px 0 5px;
+    }
+
+    .container {
+        display: block;
+    }
+}
+

@@ -1,0 +1,81 @@
+.Right {
+    width: 70%;
+    padding: 10px;
+    
+}
+
+.rightHolder h1 {
+    margin-top: 0;
+}
+
+.releaseData {
+    color: gray;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+
+.overview {
+    font-size: 1em;
+    color: #808080;
+}
+
+.watchProviders {
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    font-size: 1em;
+    color: #808080;
+}
+
+
+
+.watchHeader {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Stream select {
+    border: none;
+    padding: 5px 0;
+    outline: none;
+    background-color: #060d17;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+
+
+.platformTitle {
+    position: absolute;
+    transform: rotate(-90deg);
+}
+
+.synopsis {
+    margin-top: 20px;
+}
+
+.overview {
+    margin-top: 10px;
+    color: gray;
+}
+
+.RelatedItems {
+    margin-top: 20px;
+}
+
+.originalTitle {
+    color: #808080;
+    margin: 10px 0;
+}
+
+@media(max-width:480px) {
+    .Right {
+        width: 100%;
+    }
+}

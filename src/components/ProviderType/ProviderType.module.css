@@ -1,0 +1,21 @@
+.provideContainer {
+    border-bottom:1px solid #333;
+}
+
+.platformContainer {
+    margin: 10px 0;
+    display: flex;
+}
+
+.provider {
+    margin: 0 8px;
+}
+
+.provider img {
+    border-radius: 5px;
+    width: 60px;
+    display: block;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+}

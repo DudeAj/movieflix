@@ -1,0 +1,28 @@
+.Container {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 15px;
+    padding: 5px 0;
+    color: grey;
+}
+
+.title:hover {
+    color: #fff;
+}
+
+.ImageHolder {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    transition: opacity .1s ease;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+.ImageHolder img {
+    width: 100%;
+}
+

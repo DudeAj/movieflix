@@ -1,0 +1,14 @@
+.TypeHolder {
+    margin-top: 30px;
+}
+
+
+.TypeHolder:last-child {
+    margin-bottom: 20px;
+}
+
+.seasonHeading {
+    margin: 10px 0;
+    font-size: 20px;
+    text-transform: uppercase;
+}

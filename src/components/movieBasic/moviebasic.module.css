@@ -1,0 +1,27 @@
+.featureContainer {
+    display: flex;
+    padding-top: 20px;
+}
+
+.featureContainer:last-child{
+    padding-bottom: 20px;
+}
+
+.Heading {
+    width: 60%;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.Details {
+    font-size: 14px;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .Heading {
+        width: 100%;
+        
+    }
+
+}

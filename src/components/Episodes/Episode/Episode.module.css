@@ -1,0 +1,60 @@
+.MainContainer {
+    border-bottom: 1px solid #333;
+    padding: 20px 0;
+}
+
+.Holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.overview {
+    margin-top: 10px;
+    font-size: 14px;
+    color: gray;
+}
+
+.Episode {
+    display: flex;
+    cursor: pointer;
+}
+
+.Episode p {
+    margin-left: 5px;
+    color: gray;
+}
+
+.seasonEpisode {
+    font-weight: bold;
+}
+
+
+.iconBackground {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.iconSuccess {
+    background-color: green;
+}
+
+@media(max-width:480px) {
+    .Episode {
+        display: block;
+    }
+
+    .Episode p {
+        margin-left: 0;
+    }
+
+    .iconHolder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

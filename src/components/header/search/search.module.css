@@ -1,0 +1,24 @@
+.inputHolder {
+    box-sizing: border-box;
+    width: 100%;
+    top: -15px;
+    position: absolute;
+}
+
+.inputHolder input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 15px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: #394047;
+    color: #fff;
+    font-weight: 400;
+    border-radius: 3px;
+}
+
+.seachHolder {
+    height: 300px;
+    background-color: red;
+}

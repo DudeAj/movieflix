@@ -1,0 +1,53 @@
+.container {
+    padding: 0 4em;
+    background-color: #060d17;
+    padding-bottom: 20px;
+}
+
+.subContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.innerContainer {
+    display: flex;
+    width: 100%;
+}
+
+
+.innerContainer div {
+    width: 100%;
+}
+
+.subContainer div .Heading {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+@media (max-width:480px) {
+    .container {
+        padding: 0 1.5em;
+    }
+
+    .subContainer {
+        display: block;
+
+    }
+
+    .innerContainer {
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .innerContainer div {
+        width: 100%;
+    }
+
+    .innerContainer div div {
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    
+}
