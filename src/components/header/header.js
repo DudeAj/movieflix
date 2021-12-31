@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Search from './search/search';
 import Logo from '../../assets/images/movieflix.png';
 import NavItem from './navItem/navItem';
+import Backdrop from '../Backdrop/Backdrop';
 
 const Header = () => {
     return (
@@ -24,6 +25,7 @@ const Header = () => {
                             
                     </div>
                 </div>
+                
                 <div className={header.Middle}>
                     <Search/>
                 </div>

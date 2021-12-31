@@ -37,7 +37,6 @@ const Home = (props) => {
                         <MovieItems rowTitle="Comedy" link={PopularTv+"&with_genres=35"} />
                         <MovieItems rowTitle="Romance" link={latestTv+"&sort_by=popularity.desc&with_genres=10749"} />
                         <MovieItems rowTitle="War" link={PopularTv+"&with_genres=10752"} />
-                        
                     </div>);
     return (loading ? <Spinner/> : items)
 }

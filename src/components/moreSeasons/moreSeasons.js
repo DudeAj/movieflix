@@ -35,7 +35,7 @@ const MoreSeasons = (props) => {
         if(props.collectionId){
             axios.get(collectionURL)
             .then(res=> {
-                setItems(res.data.parts)
+                setItems(res.data.parts);
             })
             .catch(err=>{
                 console.log("err")
@@ -48,7 +48,7 @@ const MoreSeasons = (props) => {
         <div className={styles.TypeHolder}>
             <p className={styles.seasonHeading}>{items.length >0 && (props.rowTitle ? props.rowTitle + ' Seasons' : 'More Parts')}</p>
             <Carousel
-                swipeable={false}
+                swipeable={true}
                 draggable={false}
                 responsive={responsive}
                 ssr={true}

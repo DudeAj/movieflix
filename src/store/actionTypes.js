@@ -25,3 +25,6 @@ export const ITEM_ERROR = 'ITEM_ERROR';
 
 export const SET_EPISODE = 'SET_EPISODE';
 
+export const ENABLE_BACKDROP = 'ENABLE_BACKDROP';
+
+

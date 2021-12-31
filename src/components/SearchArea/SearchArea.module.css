@@ -1,0 +1,47 @@
+.SearchAreaContainer {
+    padding: 10px;
+    position: relative;
+    height: 100%;
+}
+
+.searchAreaHolder {
+    display: flex;
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+.MovieTvContainer {
+    width: 100%;
+    margin: 5px;
+}
+
+.typeHeading {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.PeopleContainer {
+    width: 100%;
+    margin: 5px;
+}
+
+.MoreHolder {
+    display: block;
+    bottom: 0;
+    position: absolute;
+    padding: 10px 0;
+    text-align: center;
+    width: 97%;
+    margin-bottom: 5px;
+    border-top: 1px solid gray
+}
+
+.MoreHolder span {
+    font-size: 13px;
+}
+ 
+@media (max-width:480px) {
+    .searchAreaHolder {
+        display: block;
+    }
+}

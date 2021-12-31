@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-
 import './App.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
@@ -7,11 +6,11 @@ import PagesContainer from './containers/PagesContainer/PagesContainer';
 import Detailspage from './pages/DetailsPage/detailspage';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import * as actionTypes from './store/actionTypes';
 import * as actions from './store/actions';
 import New from './pages/New/New';
 import Popular from './pages/Popular/Popular';
 import Watchlist  from './pages/Watchlist/Watchlist'
+import Backdrop from './components/Backdrop/Backdrop';
 
 const App = (props) => {
   
@@ -31,7 +30,9 @@ const App = (props) => {
     <BrowserRouter>
     {props.auth ? 
     <div className="App">
+      
       <Header/>
+      {props.backdropState && <Backdrop/>}
       <Routes>
         <Route path='/' exact element={<PagesContainer/>}/>
         <Route path='/details/:type/:id' exact element={<Detailspage/>}/>
@@ -49,7 +50,8 @@ const App = (props) => {
 
 const mapStateToProps = state => {
   return {
-    auth:state.auth.authenticated
+    auth:state.auth.authenticated,
+    backdropState:state.user.backdrop
   }
 }
 
@@ -60,7 +62,7 @@ const mapDispatchToProps = dispatch => {
       loadPopularTv: () => dispatch(actions.getPopularTv()),
       loadLatestMovie: () => dispatch(actions.getLatestMovie()),
       loadLatestTv:() => dispatch(actions.getLatestTv()),
-      userinfo: () => dispatch(actions.getCountry())
+      userinfo: () => dispatch(actions.getCountry()),
     }
 }
 

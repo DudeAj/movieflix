@@ -9,11 +9,11 @@ const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
         breakpoint: { max: 4000, min: 3000 },
-        items: 5
+        items: 8
     },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 6
+        items: 8
     },
     tablet: {
         breakpoint: { max: 1024, min: 700 },
@@ -46,7 +46,7 @@ const Cast = (props) => {
             <span>{props.heading}</span>
             <div className={styles.DataHolder}>
             <Carousel
-                swipeable={false}
+                swipeable={true}
                 draggable={false}
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
