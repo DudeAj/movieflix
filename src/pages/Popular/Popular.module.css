@@ -1,0 +1,12 @@
+.container {
+    padding: 0 4em;
+}
+
+.Heading {
+    margin-bottom: 20px;
+}
+
+.DataContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}

@@ -1,11 +1,13 @@
 import * as actionTypes from '../actionTypes';
 
 const initialState = {
-    trending:null,
-    PopularMovie:null,
-    PopularTv:null,
-    latestMovie:null,
-    latestTv:null
+    trending:[],
+    PopularMovie:[],
+    PopularTv:[],
+    latestMovie:[],
+    latestTv:[],
+    genre:[],
+    discover:[],
 }
 
 const reducer = (state=initialState, action) => {
@@ -19,7 +21,7 @@ const reducer = (state=initialState, action) => {
         case actionTypes.SET_POPULAR_MOVIE:
             return {
                 ...state,
-                PopularMovie:action.popularMovie
+                PopularMovie:[...state.PopularMovie, ...action.popularMovie]
             }
         
         case actionTypes.SET_POPULARTV:
@@ -39,7 +41,19 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 latestTv:action.latestTv
             }
+        
+        case actionTypes.GENRE:
+            return {
+                ...state,
+                genre:action.genre
+            }
 
+        case actionTypes.DISCOVER:
+            return {
+                ...state,
+                discover:action.payload
+            }
+        
         default:
             return state;
     }

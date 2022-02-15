@@ -1,0 +1,19 @@
+.Btn {
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;
+    color: #fff;
+    border: none;
+    margin: 3px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.Btn:hover {
+    background-color: rgb(103, 34, 167);
+}

@@ -24,7 +24,7 @@ const Search = (props) => {
         if (e.target.value.length > 2) {
             setLoading(true);
             const query = e.target.value;
-            const searchUrl = `https://api.themoviedb.org/3/search/multi?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US&query=${query}&page=1&include_adult=false&region=IN`
+            const searchUrl = `/3/search/multi?query=${query}&page=1&include_adult=false&region=IN`;
             axios.get(searchUrl)
                 .then((res) => {
                     //console.log(res.data)

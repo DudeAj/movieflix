@@ -12,7 +12,7 @@ import Episodes from '../Episodes/Episodes';
 const Rightdetails = (props) => {
     const { flatrate, rent, buy } = props.watchProviders;
     const params = useParams();
-    const similerLink = `https://api.themoviedb.org/3/${params.type}/${params.id}/similar?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US&page=1`;
+    const similerLink = `https://api.themoviedb.org/3/${params.type}/${params.id}/similar?page=1`;
     const getSelectValue = e => {
         props.updateCountry(e.target.value)
     }

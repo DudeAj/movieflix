@@ -5,23 +5,22 @@ import MovieItems from '../../components/MovieItems/MovieItems';
 import Spinner from '../../components/Spinner/spinner';
 
 
-const Home = (props) => {
-    const [watch, setWatch ] = useState([]);
+const Home = () => {
     const [loading,setLoading] = useState(true);
     
-    const trendinglink = 'https://api.themoviedb.org/3/trending/all/day?api_key=2572250a3cd36f9f144b61d06877ba1d&watch_region=IN';
-    const PopularMovie = "https://api.themoviedb.org/3/movie/popular?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US&page=1&watch_region=IN";
-    const PopularTv = "https://api.themoviedb.org/3/tv/popular?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US&page=1&watch_region=IN";
-    const latestMovie ="https://api.themoviedb.org/3/discover/movie?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US&include_adult=false&watch_region=IN";
-    const latestTv ="https://api.themoviedb.org/3/discover/tv?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US&include_adult=false&watch_region=IN";
-    const tvMovie = "https://api.themoviedb.org/3/discover/tv?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US&include_adult=true&watch_region=IN";
+    const trendinglink = '/3/trending/all/day';
+    const PopularMovie = "/3/movie/popular?page=1";
+    const PopularTv = "/3/tv/popular?language=en-US&page=1";
+    const latestMovie ="/3/discover/movie?include_adult=false";
+    const latestTv ="/3/discover/tv?include_adult=false";
+    const tvMovie = "/3/discover/tv?include_adult=false";
     
     useEffect(() => {
         axios.get(trendinglink)
         .then(res=> {
             setTimeout(() => {
                 setLoading(false)    
-            }, 2000);
+            }, 1000);
             
         }).
         catch(err=> {

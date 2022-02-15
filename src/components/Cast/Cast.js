@@ -28,7 +28,7 @@ const responsive = {
 const Cast = (props) => {
     const params = useParams();
     const [cast, setCast] = useState([]);
-    const castUrl = `https://api.themoviedb.org/3/${params.type}/${params.id}/credits?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US`;
+    const castUrl = `/3/${params.type}/${params.id}/credits`;
     const castImg = `https://www.themoviedb.org/t/p/w220_and_h330_face`;
 
     useEffect(() => {

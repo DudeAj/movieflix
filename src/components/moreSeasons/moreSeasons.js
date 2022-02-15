@@ -30,7 +30,7 @@ const responsive = {
 const MoreSeasons = (props) => {
     const params = useParams();
     const [items, setItems] = useState([])
-    const collectionURL = props.collectionId ? `https://api.themoviedb.org/3/collection/${props.collectionId}?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US` : null;
+    const collectionURL = props.collectionId ? `/3/collection/${props.collectionId}` : null;
     useEffect(() => {
         if(props.collectionId){
             axios.get(collectionURL)

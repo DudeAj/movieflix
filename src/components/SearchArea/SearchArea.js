@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SearchArea.module.css';
 import SearchItem from './SearchItem/searchItem';
+import {useNavigate} from 'react-router-dom';
 
 const SearchArea = (props) => {
     console.log(props.items.length)
@@ -41,7 +42,6 @@ const SearchArea = (props) => {
                             return (<SearchItem key={item.id} data={item} />);
                         }
                     })}
-
                 </div>
             </div>
             <div className={styles.MoreHolder}>

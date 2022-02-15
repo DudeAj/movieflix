@@ -1,0 +1,8 @@
+.provider{
+    padding: 5px;
+}
+
+.provider img {
+    width: 100%;
+    border-radius: 10%;
+}
