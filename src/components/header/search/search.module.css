@@ -22,3 +22,10 @@
     height: 300px;
     background-color: red;
 }
+
+@media(max-width:480px) {
+    .inputHolder {
+        position: static;
+        
+    }
+}

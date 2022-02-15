@@ -4,16 +4,17 @@ import { useParams } from "react-router-dom";
 import styles from './Cast.module.css';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import placeHolderImage from '../../assets/images/placeholderImage.png'
 
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
         breakpoint: { max: 4000, min: 3000 },
-        items: 5
+        items: 8
     },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 6
+        items: 8
     },
     tablet: {
         breakpoint: { max: 1024, min: 700 },
@@ -60,7 +61,7 @@ const Cast = (props) => {
             >
                 {cast && cast.map(movieCast => {
                     return <div className={styles.peopleholder} key={movieCast.id}>
-                        <img src={castImg+movieCast.profile_path} />
+                        {movieCast.profile_path ? <img src={castImg+movieCast.profile_path}/> : <img src={placeHolderImage}/>}
                         <p className={styles.Name}>{movieCast.name}</p>
                         {/* <p className={styles.Role}>{movieCast.character}</p> */}
                     </div>
