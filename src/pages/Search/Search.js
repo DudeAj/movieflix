@@ -15,21 +15,21 @@ const Search = (props) => {
     const [debouncedQuery, setDebouncedQuery] = useState(props.query);
 
     useEffect(() => {
-        const timerId = setTimeout(()=>{
+        const timerId = setTimeout(() => {
             setDebouncedQuery(props.query);
-        },1000);
+        }, 1000);
 
         return () => {
             clearInterval(timerId);
         }
-        
+
     }, [props.query]);
 
     useEffect(() => {
-        
+
         if (debouncedQuery.length > 2) {
-            
-                loadData(debouncedQuery, page)
+
+            loadData(debouncedQuery, page)
         }
         else {
             setItems([])
@@ -41,7 +41,7 @@ const Search = (props) => {
     const LoadMore = () => {
         setPage(prevPage => prevPage + 1);
     }
-    
+
     const loadData = async (searchRequest, pageNumber) => {
         setLoading(true)
         const searchUrl = `/3/search/multi?query=${searchRequest}&page=${pageNumber}&include_adult=false&region=IN`
@@ -50,10 +50,10 @@ const Search = (props) => {
             setItems(res.data.results);
             setPage(res.data.page)
             setTotalPage(res.data.total_pages);
-            setTimeout(()=> {
+            setTimeout(() => {
                 setLoading(false)
-            },1000)
-            
+            }, 1000)
+
         })
             .catch(err => {
                 console.log(err);
@@ -73,7 +73,7 @@ const Search = (props) => {
                 })}
             </div>
             <div className={styles.btnHolder}>
-                
+
                 {/* <Pagination /> */}
 
             </div>
@@ -95,4 +95,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search)
-;
+    ;

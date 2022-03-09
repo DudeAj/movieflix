@@ -16,6 +16,8 @@
 }
 
 .FilterArea {
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
 }
 
@@ -24,7 +26,7 @@
     color: grey;
 }
 
-.Type h4 {
+.Type h5 {
     margin-right: 10px;
     cursor: pointer;
     color: gray;
@@ -32,10 +34,10 @@
     border-bottom: 2px solid transparent;
 }
 
-.Type h4.active {
+.Type h5.active {
     border-bottom: 2px solid #b41010;
 }
-.Type h4:hover {
+.Type h5:hover {
     color: #fff;
     border-bottom: 2px solid #b41010;
 }
@@ -45,16 +47,23 @@
 
 .popupforRelease {
     position: absolute;
+    z-index: 10;
+    width: 300px;
+    padding-top: 10px;
+    background-color: gray;
 }
 
 .popupforGenre {
+    background-color: gray;
     position: absolute;
     width: 500px;
+    z-index: 10;
 }
     
 .genreOption {
-    
+    border-radius: 5px;
     cursor: pointer;
+    margin-top: 1px;
 }
 
 .genreOption:hover {
