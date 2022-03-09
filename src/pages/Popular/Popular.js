@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Popular.module.css';
-import axios from 'axios';
 import { connect } from 'react-redux';
-
 import MovieItem from '../../components/MovieItems/MovieItem/MovieItem';
 import LoadMore from '../../components/UI/LoadMore/LoadMore';
 import { getPopularMovie, getPopularTv } from '../../store/actions';

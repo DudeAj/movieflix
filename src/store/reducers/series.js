@@ -8,6 +8,7 @@ const initialState = {
     latestTv:[],
     genre:[],
     discover:[],
+    loading:false
 }
 
 const reducer = (state=initialState, action) => {
@@ -49,11 +50,17 @@ const reducer = (state=initialState, action) => {
             }
 
         case actionTypes.DISCOVER:
+            
             return {
                 ...state,
                 discover:action.payload
             }
         
+        case actionTypes.START_LOADING:
+            return {
+                ...state,
+                loading:action.payload
+            }
         default:
             return state;
     }
