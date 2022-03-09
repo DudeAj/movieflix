@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import Carousel from "react-multi-carousel";
+import React, { useState, useEffect } from 'react';
+import Car from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieItem from './MovieItem/MovieItem';
 import styles from './MovieItems.module.css';
 import axios from 'axios';
+import { Carousel } from '@trendyol-js/react-carousel';
 
 const responsive = {
     superLargeDesktop: {
@@ -28,39 +29,44 @@ const responsive = {
 const MovieItems = (props) => {
 
     const [items, setItems] = useState([]);
-    
 
-    useEffect(()=> {
+
+    useEffect(() => {
         axios.get(props.link)
-            .then(res=>{
+            .then(res => {
                 setItems(res.data.results);
             })
-            .catch(err=> {
+            .catch(err => {
                 console.log(err)
             })
-    },[])
-    
+    }, [])
+
     return (
         <div className={styles.TypeHolder}>
             <p>{props.rowTitle}</p>
-            <Carousel
-                swipeable={false}
+            {<Carousel show={3.5} slide={3} swiping={true}>
+            {items.map(item => {
+                    return <MovieItem key={item.id} data={item} />
+                })}
+            </Carousel>}
+            <Car
+                swipeable={true}
                 draggable={false}
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
+                infinite={true}
                 autoPlaySpeed={1000}
                 keyBoardControl={true}
                 customTransition="all .5"
                 transitionDuration={500}
                 containerClass="carousel-container"
                 removeArrowOnDeviceType={["tablet", "mobile"]}
-                itemClass="carousel-item-padding-50-px"
-            >
-                {items.map(item=> {
-                    return <MovieItem key={item.id} data={item}/>
+                itemClass="carousel-item-padding-40-px">
+                {items.map(item => {
+                    return <MovieItem key={item.id} data={item} />
                 })}
-                
-            </Carousel>
+
+            </Car>
         </div>
     )
 }

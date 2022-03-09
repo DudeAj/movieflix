@@ -4,13 +4,12 @@
 
 .peopleholder {
     margin: 3px;
-    position: relative
+    position: relative;
 }
 
 .DataHolder {
     margin-top: 10px;
 }
-
 
 .peopleholder img {
     object-fit:cover;

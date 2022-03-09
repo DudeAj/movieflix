@@ -1,0 +1,62 @@
+.container {
+    padding: 0 4em;
+}
+
+.Heading {
+    margin-bottom: 20px;
+}
+
+.DataContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
+.Type {
+    display: flex;
+}
+
+.FilterArea {
+    display: flex;
+}
+
+.Filter {
+    margin-right: 10px;
+    color: grey;
+}
+
+.Type h4 {
+    margin-right: 10px;
+    cursor: pointer;
+    color: gray;
+    margin-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.Type h4.active {
+    border-bottom: 2px solid #b41010;
+}
+.Type h4:hover {
+    color: #fff;
+    border-bottom: 2px solid #b41010;
+}
+
+.providerHolder {
+}
+
+.popupforRelease {
+    position: absolute;
+}
+
+.popupforGenre {
+    position: absolute;
+    width: 500px;
+}
+    
+.genreOption {
+    
+    cursor: pointer;
+}
+
+.genreOption:hover {
+    background-color: gainsboro;
+}

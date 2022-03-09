@@ -25,6 +25,17 @@
     margin: 10px 0;
 }
 
+.options p {
+    font-size: 14px;
+    line-height: 20px;
+    color: grey;
+    cursor: pointer;
+}
+
+.options p:hover {
+    color: #fff;
+}
+
 @media (max-width:480px) {
     .container {
         padding: 0 1.5em;

@@ -43,7 +43,7 @@ const MovieItems = (props) => {
         <div className={styles.TypeHolder}>
             
             <Carousel
-                swipeable={false}
+                swipeable={true}
                 draggable={false}
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.

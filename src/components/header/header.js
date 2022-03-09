@@ -11,12 +11,11 @@ const Header = () => {
             <div className={header.submenuContainer}>
                 <div className={header.Left}>
                     <div className={header.logo}>
-                        <img src={Logo}/>
+                        <img src={Logo} alt="image"/>
                     </div>
                     <div className={header.MenuContainer}>
                             <ul>
                                 <NavItem title="Home" value=''/>
-                                <NavItem title="New" value='new'/>
                                 <NavItem title="Popular" value='popular'/>
                                 <NavItem title="Watchlist" value='watchlist'/>
                                 <NavItem title="Genre" value='Genre'/>
@@ -24,6 +23,7 @@ const Header = () => {
                             
                     </div>
                 </div>
+                
                 <div className={header.Middle}>
                     <Search/>
                 </div>

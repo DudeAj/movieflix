@@ -1,0 +1,35 @@
+.PageContainer {
+    padding: 0 4em;
+}
+
+
+.DataContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
+.Heading {
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width:481px) and (max-width:900px) {
+    .DataContainer {
+        grid-template-columns: auto auto auto auto auto;
+    }
+}
+
+@media(max-width:480px) {
+
+    .DataContainer {
+        grid-template-columns: auto auto auto;
+    }
+
+    .PageContainer {
+        padding: 0 1em;
+    }
+}
+
+.btnHolder {
+    display: flex;
+    justify-content: center;
+}

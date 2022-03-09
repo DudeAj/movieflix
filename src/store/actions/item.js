@@ -36,7 +36,6 @@ export const getItem = (link) => {
     }
 }
 
-
 export const setEpisode = (data) => {
     return {
         type: actionTypes.SET_EPISODE,

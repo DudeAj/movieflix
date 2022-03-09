@@ -1,7 +1,25 @@
-export {getTrending,getPopularMovie, getPopularTv, getLatestMovie, getLatestTv} from './series'
+export {
+    getTrending,
+    getPopularMovie,
+    getPopularTv,
+    getLatestMovie,
+    getLatestTv,
+    getGenre,
+    getDiscover
+} from './series'
 
-export {getCountry, updateCountry} from './user';
+export { 
+    getCountry, 
+    updateCountry, 
+    setBackrop 
+} from './user';
 
-export {getWatchProviders} from './provider';
+export { 
+    getWatchProviders,
+    getAllProviders,
+} from './provider';
 
-export {getItem, getEpisodes} from './item';
+export { 
+    getItem, 
+    getEpisodes 
+} from './item';

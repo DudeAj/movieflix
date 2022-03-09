@@ -30,12 +30,12 @@ const responsive = {
 const MoreSeasons = (props) => {
     const params = useParams();
     const [items, setItems] = useState([])
-    const collectionURL = props.collectionId ? `https://api.themoviedb.org/3/collection/${props.collectionId}?api_key=2572250a3cd36f9f144b61d06877ba1d&language=en-US` : null;
+    const collectionURL = props.collectionId ? `/3/collection/${props.collectionId}` : null;
     useEffect(() => {
         if(props.collectionId){
             axios.get(collectionURL)
             .then(res=> {
-                setItems(res.data.parts)
+                setItems(res.data.parts);
             })
             .catch(err=>{
                 console.log("err")
@@ -48,7 +48,7 @@ const MoreSeasons = (props) => {
         <div className={styles.TypeHolder}>
             <p className={styles.seasonHeading}>{items.length >0 && (props.rowTitle ? props.rowTitle + ' Seasons' : 'More Parts')}</p>
             <Carousel
-                swipeable={false}
+                swipeable={true}
                 draggable={false}
                 responsive={responsive}
                 ssr={true}

@@ -1,7 +1,8 @@
 import * as actionTypes from '../actionTypes';
 
 const initialState = {
-    watch_providers:{}
+    watch_providers:{},
+    allProviders:[]
 }
 
 
@@ -11,6 +12,12 @@ const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 watch_providers:action.watch_providers
+            }
+        
+        case actionTypes.ALL_PROVIDERS:
+            return {
+                ...state,
+                allProviders:action.payload
             }
         
         default:

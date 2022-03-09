@@ -2,6 +2,8 @@
     color:#ffffff;
     height: auto;
     background-color:#060d17;
+    position: relative;
+    z-index: 2;
 }
 
 .submenuContainer {
@@ -104,6 +106,7 @@
     }
 
     .ProfileDetails {
+        margin-top: 50px;
         display: flex;
         justify-content: space-between;
     }

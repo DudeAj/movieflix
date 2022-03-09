@@ -1,0 +1,20 @@
+.LoadMoreContainer {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+}
+
+.LoadMore {
+    color: #fff;
+    background-color: blueviolet;
+    padding: 5px 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: inline;
+    font-weight: 300;
+}
+
+.LoadMore:hover {
+    background-color: rgb(108, 22, 189);
+}

@@ -16,7 +16,8 @@ export const LOAD_SERIES = 'LOAD_SERIES';
 export const USER_COUNTRY = 'USER_COUNTRY';
 
 //for watch Providers 
-export const WATCH_PROVIDER = "WATCH_PROVIDER";
+export const WATCH_PROVIDER = 'WATCH_PROVIDER';
+export const ALL_PROVIDERS = 'ALL_PROVIDERS';
 
 //for setting single item
 export const SET_ITEM = 'SET_ITEM';
@@ -24,4 +25,12 @@ export const ITEM_LOADING_START = 'ITEM_LOADING_START';
 export const ITEM_ERROR = 'ITEM_ERROR';
 
 export const SET_EPISODE = 'SET_EPISODE';
+
+export const ENABLE_BACKDROP = 'ENABLE_BACKDROP';
+
+
+//for setting up genre
+export const GENRE = 'GENRE';
+export const DISCOVER = 'DISCOVER';
+
 

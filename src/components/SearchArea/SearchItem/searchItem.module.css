@@ -1,0 +1,51 @@
+.searchItemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.searchItemContainer:hover {
+    background-color: #333;
+    cursor: pointer;
+}
+
+.imgContainer {
+    width: 20%;
+    height: 100%;
+    padding: 1px;
+}
+
+.imgContainer img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+}
+
+.infoContainer {
+    width: 80%;
+    height: 100%;
+}
+
+.Heading {
+    font-size: 16px;
+    color: #fff;
+}
+
+.subInfo {
+    font-size: 14px;
+    color: gray;
+}
+
+@media(max-width:480px) {
+    .imgContainer img {
+        padding: 0;
+    }
+
+    .infoContainer {
+        padding-left: 10px;
+    }
+}
