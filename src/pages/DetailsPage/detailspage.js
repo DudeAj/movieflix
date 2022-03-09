@@ -13,7 +13,6 @@ import { useState } from 'react';
 const Detailspage = (props) => {
 
     const params = useParams();
-    console.log(params)
     const [parm, setParm] = useState(0);
     const [sea, setSea] = useState("")
     const seasonNumber = params.season ? params.season.split('-')[1] : null;

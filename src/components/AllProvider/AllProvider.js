@@ -13,7 +13,7 @@ const AllProvider = ({ items, handleProvider }) => {
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 12
+            items: 17
         },
         tablet: {
             breakpoint: { max: 1024, min: 700 },

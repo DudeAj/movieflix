@@ -61,7 +61,7 @@ const Cast = (props) => {
                 {cast && cast.map(movieCast => {
                     return <div className={styles.peopleholder} key={movieCast.id}>
                         <img src={castImg+movieCast.profile_path} />
-                        <p className={styles.Name}>{movieCast.name}</p>
+                        <span className={styles.Name}>{movieCast.name}</span>
                         {/* <p className={styles.Role}>{movieCast.character}</p> */}
                     </div>
                 })}

@@ -4,8 +4,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Search from './search/search';
 import Logo from '../../assets/images/movieflix.png';
 import NavItem from './navItem/navItem';
+import {useNavigate} from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
     return (
         <div className={header.headerContainer}>
             <div className={header.submenuContainer}>
@@ -28,7 +30,7 @@ const Header = () => {
                     <Search/>
                 </div>
                 <div className={header.ProfileDetails}>
-                    <button>SignIn</button>
+                    <button onClick={()=> navigate('/login')}>SignIn</button>
                     <MenuIcon className={header.Menuicon}/>
                 </div>
             </div>

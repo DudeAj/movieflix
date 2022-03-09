@@ -7,6 +7,14 @@ const popularTv = "/3/tv/popular?page=";
 const latestMovie = "/3/discover/movie?include_adult=false";
 const latestTv = "/3/discover/tv?include_adult=false";
 
+
+const StartLoading = () => {
+    return {
+        type: actionTypes.START_LOADING,
+        payload:true
+    }
+}
+
 export const setDiscover = (data) => {
     return {
         type: actionTypes.DISCOVER,
@@ -16,11 +24,15 @@ export const setDiscover = (data) => {
 
 export const getDiscover = (url) => {
     return dispatch => {
+        StartLoading(true);
         axios.get(url).then(response => {
-            dispatch(setDiscover(response.data))
+            //console.log(response.data);
+            dispatch(setDiscover(response.data.results))
+            StartLoading(false);
         })
         .catch(error => {
             console.log(error);
+            StartLoading(false);
         })
     }
 }

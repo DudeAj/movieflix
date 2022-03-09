@@ -7,28 +7,46 @@ import LoadMore from '../../components/UI/LoadMore/LoadMore';
 import * as actions from '../../store/actions';
 import AllProvider from '../../components/AllProvider/AllProvider';
 
+
 const Genre = (props) => {
 
-    
+
+
+
+
     const activeClass = [styles.active];
     const movieType = useRef();
     const tvType = useRef();
-
     const [Page, setPage] = useState(1);
     const [Type, setType] = useState("movie");
     const [selectedGenre, setSelectedGenre] = useState([]);
+    const [selectedProvider, setSelectedProvider] = useState("");
     const [Item, setItem] = useState([]);
-    const [releaseYear, setReleaseYear] = useState('1900-01-01');
+    const [releaseYear, setReleaseYear] = useState(0);
     const [show, setShow] = useState(false);
     const [showGenre, setShowGenre] = useState(false);
 
     const originalURL = 'https://image.tmdb.org/t/p/original';
+
     useEffect(() => {
-        const discoverLink = "https://api.themoviedb.org/3/discover/movie?api_key=<<api_key>>&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=2019&with_genres=19&with_watch_providers=124&with_watch_monetization_types=flatrate";
+        let filterGenre = "";
+        let filterYear = "";
+        if (selectedGenre.length > 0) {
+            filterGenre = "&with_genres=" + selectedGenre.join(',')
+        }
+
+        if(releaseYear !== 0){
+            filterYear = "&year=" + releaseYear;
+        }
+
         props.getAllProviders(Type)
         props.loadGenre(Type);
+        data(Type);
+        const discoverLink = `3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`;
+        props.fetchDiscover(discoverLink);
 
-    }, [Type, Page]);
+
+    }, [Type, selectedProvider, Page, selectedGenre,releaseYear]);
 
     const data = (filterType) => {
         if (filterType === "movie") {
@@ -45,64 +63,101 @@ const Genre = (props) => {
     }
 
     const setGenre = (id) => {
-        console.log("Clicked: " + id);
-        const latestGenre = [...selectedGenre, id];
-        setSelectedGenre(latestGenre);
+        if (selectedGenre.includes(id)) {
+            const latestGenre = selectedGenre.filter(genre => genre !== id);
+            setSelectedGenre(latestGenre);
+        }
+        else {
+            console.log("Clicked: " + id);
+            const latestGenre = [...selectedGenre, id];
+            setSelectedGenre(latestGenre);
+        }
+    }
+
+    const selectedItems = (item) => {
+        let selectedClass;
+        if (selectedGenre.includes(item.id)) {
+            selectedClass = styles.genreOption + ' col-6 text-white bg-dark';
+        }
+        else {
+            selectedClass = styles.genreOption + ' col-6 text-black';
+        }
+        return <div
+            className={selectedClass}
+            key={item.id}
+            onClick={() => setGenre(item.id)}>
+            {item.name}
+        </div>
+    }
+
+    const ShowAllGenre = () => {
+        return <div className={styles.popupforGenre + " d-flex justify-content-center p-2"}>
+            <div className='row p-2'>
+                {props.genre.map(item => {
+                    return selectedItems(item);
+                })}
+            </div>
+        </div>
+    }
+
+    const releaseYearChangeHandler = (e) => {
+        const year = e.target.value;
+        setReleaseYear(year);
+    }
+
+    const ShowPopupforYear = () => {
+        return <div className={styles.popupforRelease + " p-2"}>
+        <input type="range" className="form-range" value={releaseYear} onChange={releaseYearChangeHandler} min="1900" max="2022" id="customRange2"/>
+        <div className='row'>
+            <span className='col-6 text-start'>1900</span>
+            <span className='col-6 text-end'>{new Date().getFullYear()}</span>
+        </div>
+    </div>
     }
 
     const setProvider = (id) => {
-        console.log("Provider ID: " + id);
+        setSelectedProvider(`&with_watch_providers=${id}`);
     }
 
     return <div className={styles.container}>
         <h3 className={styles.Heading}>Filter By Genre</h3>
         <div className={styles.providerHolder}>
-            <AllProvider items={props.allProvider} handleProvider={setProvider}/>
+            <AllProvider items={props.allProvider} handleProvider={setProvider} />
         </div>
+
         <div className={styles.FilterArea}>
             <div className={styles.Type}>
-                <h4 ref={movieType} onClick={() => data("movie")}>Movies</h4>
-                <h4 ref={tvType} onClick={() => data("tv")}>Series</h4>
+                <h5 ref={movieType} onClick={() => data("movie")}>Movies</h5>
+                <h5 ref={tvType} onClick={() => data("tv")}>Series</h5>
             </div>
             <div className={styles.Filter}>
-                <h4>Filter By</h4>
+                <h5>Filter By</h5>
             </div>
             <div className={styles.Type}>
+                {/* For Release Year */}
                 <div className='mx-2'>
                     <button className='btn btn-warning' onClick={() => {
                         setShow(!show)
                         setShowGenre(false)
                     }
                     }>Release Year</button>
-                    {show && <div className={styles.popupforRelease + " bg-white d-flex justify-content-center p-2"}>
-                        <progress className={styles.progress + " "} value="50" max="122"></progress>
-                    </div>}
+                    {show && ShowPopupforYear()}
                 </div>
-
+                {/* For Genre */}
                 <div className='mx-2'>
                     <button className='btn btn-warning' onClick={() => {
                         setShowGenre(!showGenre)
-                        setShow(false)}}>Genre</button>
-                    {
-                        showGenre && <div className={styles.popupforGenre + " bg-white d-flex justify-content-center p-2"}>
-                            <div className='row p-2'>
-                                {props.genre.map(item => {
-                                    return <div className={styles.genreOption + ' col-6 text-black'} key={item.id} onClick={() => setGenre(item.id)}>
-                                        {item.name}
-                                    </div>
-                                })}
-                            </div>
-                        </div>
-                    }
+                        setShow(false)
+                    }}>Genre</button>
+                    {showGenre && ShowAllGenre()}
                 </div>
-                <select>
-                    <option>Rating</option>
-                </select>
+
             </div>
         </div>
+
         <div className={styles.DataContainer}>
-            {/* {Item.map((item) => <MovieItem key={item.id} data={item} />)
-            } */}
+            {props.discover.map((item) => <MovieItem key={item.id} data={item} />)
+            }
         </div>
         <LoadMore clicked={() => setPage(Page + 1)} />
     </div>;

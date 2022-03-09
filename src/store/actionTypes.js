@@ -33,4 +33,6 @@ export const ENABLE_BACKDROP = 'ENABLE_BACKDROP';
 export const GENRE = 'GENRE';
 export const DISCOVER = 'DISCOVER';
 
+export const START_LOADING = 'START_LOADING';
+
 
