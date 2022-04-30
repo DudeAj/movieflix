@@ -4,38 +4,45 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Search from './search/search';
 import Logo from '../../assets/images/movieflix.png';
 import NavItem from './navItem/navItem';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = (props) => {
     const navigate = useNavigate();
     return (
         <div className={header.headerContainer}>
             <div className={header.submenuContainer}>
                 <div className={header.Left}>
                     <div className={header.logo}>
-                        <img src={Logo} alt="image"/>
+                        <img src={Logo} alt="image" />
                     </div>
                     <div className={header.MenuContainer}>
-                            <ul>
-                                <NavItem title="Home" value=''/>
-                                <NavItem title="Popular" value='popular'/>
-                                <NavItem title="Watchlist" value='watchlist'/>
-                                <NavItem title="Genre" value='Genre'/>
-                            </ul>
-                            
+                        <ul>
+                            <NavItem title="Home" value='' />
+                            <NavItem title="Popular" value='popular' />
+                            <NavItem title="Watchlist" value='watchlist' />
+                            <NavItem title="Genre" value='Genre' />
+                        </ul>
+
                     </div>
                 </div>
-                
+
                 <div className={header.Middle}>
-                    <Search/>
+                    <Search />
                 </div>
                 <div className={header.ProfileDetails}>
-                    <button onClick={()=> navigate('/login')}>SignIn</button>
-                    <MenuIcon className={header.Menuicon}/>
+                    {props.isLoggedIn ? <button onClick={() => navigate('/logout')}>Logout</button> : <button onClick={() => navigate('/login')}>SignIn</button>}
+                    <MenuIcon className={header.Menuicon} />
                 </div>
             </div>
         </div>
     )
 }
 
-export default Header
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.auth.isLoggedin
+    }
+}
+
+export default connect(mapStateToProps)(Header);

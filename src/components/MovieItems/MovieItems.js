@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Car from "react-multi-carousel";
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieItem from './MovieItem/MovieItem';
 import styles from './MovieItems.module.css';
 import axios from 'axios';
-import { Carousel } from '@trendyol-js/react-carousel';
+
 
 const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
-        breakpoint: { max: 4000, min: 3000 },
-        items: 5
+        breakpoint: { max: 4000, min: 1366 },
+        items: 10
     },
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 6
+        breakpoint: { max: 1366, min: 1024 },
+        items: 5
     },
     tablet: {
         breakpoint: { max: 1024, min: 700 },
@@ -34,7 +34,8 @@ const MovieItems = (props) => {
     useEffect(() => {
         axios.get(props.link)
             .then(res => {
-                setItems(res.data.results);
+                const result = res.data.results ? res.data.results : res.data.parts;
+                setItems(result);
             })
             .catch(err => {
                 console.log(err)
@@ -44,12 +45,7 @@ const MovieItems = (props) => {
     return (
         <div className={styles.TypeHolder}>
             <p>{props.rowTitle}</p>
-            {<Carousel show={3.5} slide={3} swiping={true}>
-            {items.map(item => {
-                    return <MovieItem key={item.id} data={item} />
-                })}
-            </Carousel>}
-            <Car
+            <Carousel
                 swipeable={true}
                 draggable={false}
                 responsive={responsive}
@@ -66,7 +62,7 @@ const MovieItems = (props) => {
                     return <MovieItem key={item.id} data={item} />
                 })}
 
-            </Car>
+            </Carousel>
         </div>
     )
 }

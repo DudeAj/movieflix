@@ -8,12 +8,12 @@ const AllProvider = ({ items, handleProvider }) => {
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 3000 },
-            items: 20
+            breakpoint: { max: 4000, min: 1366 },
+            items: 17
         },
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 17
+            breakpoint: { max: 1366, min: 1024 },
+            items: 14
         },
         tablet: {
             breakpoint: { max: 1024, min: 700 },
@@ -21,7 +21,7 @@ const AllProvider = ({ items, handleProvider }) => {
         },
         mobile: {
             breakpoint: { max: 700, min: 0 },
-            items: 6
+            items: 7
         }
     };
     return <Carousel

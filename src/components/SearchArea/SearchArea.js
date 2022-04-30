@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SearchArea.module.css';
 import SearchItem from './SearchItem/searchItem';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SearchArea = (props) => {
     console.log(props.items.length)
@@ -20,9 +20,13 @@ const SearchArea = (props) => {
                 sr.push(item);
             }
         }
-        setMovies(mv.slice(0, 4));
         setSeries(sr.slice(0, 4));
+        setMovies(mv.slice(0, 4));
     }, [])
+
+    console.log("Movies", movies)
+    console.log("Series", series)
+    console.log("All Items", props.items)
 
     return (
         <div className={styles.SearchAreaContainer}>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 
@@ -9,12 +9,17 @@ import Footer from './components/footer/footer';
 import PagesContainer from './containers/PagesContainer/PagesContainer';
 import Detailspage from './pages/DetailsPage/detailspage';
 import Login from './pages/Login/Login';
+import Logout from './pages/Logout/Logout';
 
 import * as actions from './store/actions';
 import Popular from './pages/Popular/Popular';
 import Watchlist from './pages/Watchlist/Watchlist'
 import Genre from './pages/Genre/Genre';
 import Backdrop from './components/Backdrop/Backdrop';
+import "./firebase";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Layout from './hoc/Layout';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org';
 axios.interceptors.request.use(config => {
@@ -28,6 +33,7 @@ axios.interceptors.request.use(config => {
 
 const App = (props) => {
 
+
   useEffect(() => {
     props.loadTrending()
     props.loadPopular(1)
@@ -35,34 +41,41 @@ const App = (props) => {
     props.loadLatestMovie()
     props.loadLatestTv()
     props.userinfo()
-  }, [])
+
+  }, [props.token])
 
   return (
-    <BrowserRouter>
-      {props.auth ?
-        <div className="App">
-          <Header />
-          {props.backdropState && <Backdrop />}
-          <Routes>
+    <div>
+
+      <div className="App">
+        <ToastContainer autoClose={2000} />
+
+        {props.backdropState && <Backdrop />}
+        <Routes>
+          <Route path='/' element={<Layout />} >
+            <Route index element={<PagesContainer />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/' exact element={<PagesContainer />} />
             <Route path='/details/:type/:id' exact element={<Detailspage />} />
             <Route path='/details/:type/:id/:season' exact element={<Detailspage />} />
             <Route path='/popular' element={<Popular />} />
             <Route path='/watchlist' element={<Watchlist />} />
             <Route path='/genre' element={<Genre />} />
-          </Routes>
-          <Footer />
-        </div>
-        : <Routes><Route path='/login' element={<Login />} /></Routes>}
-    </BrowserRouter>
+            <Route path='/logout' element={<Logout />} />
+          </Route>
+        </Routes>
+
+      </div>
+
+    </div>
   );
 }
 
 const mapStateToProps = state => {
   return {
     auth: state.auth.authenticated,
-    backdropState: state.user.backdrop
+    isLoggedin: state.auth.isLoggedin,
+    backdropState: state.user.backdrop,
+    token: state.user.userToken
   }
 }
 

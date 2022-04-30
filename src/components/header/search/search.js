@@ -4,19 +4,13 @@ import { connect } from 'react-redux';
 import { setBackrop } from '../../../store/actions';
 import axios from 'axios';
 import SearchArea from '../../SearchArea/SearchArea';
-import Spinner from '../../Spinner/spinner';
-import { css } from "@emotion/react";
-import RingLoader from "react-spinners/RingLoader";
+import { CircularProgress } from '@mui/material';
+
 
 const Search = (props) => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState([]);
 
-  const override = css`
-        display: block;
-        margin: 0 auto;
-        border-color: red;
-        `;
 
   const changeHandler = (e) => {
     e.preventDefault();
@@ -49,7 +43,7 @@ const Search = (props) => {
           <div className={searchStyle.seachHolder}>
             {loading
               ? <div className={searchStyle.LoadingContainer}>
-                <RingLoader color='#ffffff' css={override} loading={loading} size={50} />
+                <CircularProgress />
               </div>
               : <SearchArea items={result} />}
           </div>

@@ -8,5 +8,23 @@
 
 .DataContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+}
+
+
+@media (max-width:480px) {
+    .container {
+    padding: 0 1em;
+}
+    .DataContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+}
+
+@media (min-width:481px) and (max-width:1366px) {
+    .DataContainer {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+    }
 }

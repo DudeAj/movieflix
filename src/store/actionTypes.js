@@ -8,6 +8,7 @@ export const SET_POPULAR_MOVIE = 'SET_POPULAR_MOVIE';
 export const SET_POPULARTV = 'SET_POPULARTV';
 export const LATEST_MOVIE = 'LATEST_MOVIE';
 export const LATEST_TV = 'LATEST_TV';
+export const SET_WATCHLIST = 'SET_WATCHLIST';
 
 //for extra data
 export const LOAD_SERIES = 'LOAD_SERIES';

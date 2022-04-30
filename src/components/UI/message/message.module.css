@@ -1,0 +1,13 @@
+.background {
+    background-color: #f78383;
+    border-radius: 5px;
+    border: 1px solid red;
+    color: white;
+    display: table;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+    padding: 5px;
+}

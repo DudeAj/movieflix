@@ -14,12 +14,12 @@
 
 .imgBottom {
     background-color: #333;
-    display: grid;
+    display: flex;
     width: 100%;
-    grid-template-columns: auto auto auto auto;
     text-align: center;
     column-gap: 5px;
     align-content: center;
+    justify-content: center;
     padding: 10px;
     box-sizing: border-box;
     border-bottom-left-radius: 10px;
