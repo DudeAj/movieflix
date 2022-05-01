@@ -5,21 +5,28 @@ export {
     getLatestMovie,
     getLatestTv,
     getGenre,
-    getDiscover
+    getDiscover,
+    fetchWatchList
 } from './series'
 
-export { 
-    getCountry, 
-    updateCountry, 
-    setBackrop 
+export {
+    getCountry,
+    updateCountry,
+    setBackrop
 } from './user';
 
-export { 
+export {
     getWatchProviders,
     getAllProviders,
 } from './provider';
 
-export { 
-    getItem, 
-    getEpisodes 
+export {
+    getItem,
+    getEpisodes
 } from './item';
+
+export {
+    setLogin,
+    LogoutUser,
+    setLoginAsync
+} from './auth'

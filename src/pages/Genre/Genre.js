@@ -1,18 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
-
 import styles from './genre.module.css';
 import MovieItem from '../../components/MovieItems/MovieItem/MovieItem';
 import LoadMore from '../../components/UI/LoadMore/LoadMore';
 import * as actions from '../../store/actions';
 import AllProvider from '../../components/AllProvider/AllProvider';
-
+import Spinner from '../../components/Spinner/spinner';
+import Popover from '@mui/material/Popover';
+import { Button, Slider } from '@mui/material';
 
 const Genre = (props) => {
-
-
-
-
 
     const activeClass = [styles.active];
     const movieType = useRef();
@@ -21,32 +18,56 @@ const Genre = (props) => {
     const [Type, setType] = useState("movie");
     const [selectedGenre, setSelectedGenre] = useState([]);
     const [selectedProvider, setSelectedProvider] = useState("");
-    const [Item, setItem] = useState([]);
-    const [releaseYear, setReleaseYear] = useState(0);
-    const [show, setShow] = useState(false);
-    const [showGenre, setShowGenre] = useState(false);
+    const [releaseYear, setReleaseYear] = useState([2000, new Date().getFullYear()]);
 
-    const originalURL = 'https://image.tmdb.org/t/p/original';
+    //popover setup for release year
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const openYear = Boolean(anchorEl);
+
+    //popover setup for genre
+    const [anchorElGenre, setAnchorElGenre] = React.useState(null);
+
+    const handleGenre = (event) => {
+        setAnchorElGenre(event.currentTarget);
+    };
+
+    const genreClose = () => {
+        setAnchorElGenre(null);
+    };
+
+    const openGenre = Boolean(anchorElGenre);
+
+
 
     useEffect(() => {
         let filterGenre = "";
         let filterYear = "";
+
         if (selectedGenre.length > 0) {
             filterGenre = "&with_genres=" + selectedGenre.join(',')
         }
 
-        if(releaseYear !== 0){
-            filterYear = "&year=" + releaseYear;
+        if (releaseYear !== 0) {
+            filterYear = "&release_date.gte=" + releaseYear[0] + "&release_date.lte=" + releaseYear[1];
         }
 
         props.getAllProviders(Type)
         props.loadGenre(Type);
         data(Type);
-        const discoverLink = `3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`;
-        props.fetchDiscover(discoverLink);
+        // const discoverLink = `3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`;
+        props.fetchDiscover(Type, Page, filterYear, filterGenre, selectedProvider);
 
 
-    }, [Type, selectedProvider, Page, selectedGenre,releaseYear]);
+    }, [Type, selectedProvider, Page, selectedGenre, releaseYear]);
 
     const data = (filterType) => {
         if (filterType === "movie") {
@@ -90,30 +111,16 @@ const Genre = (props) => {
         </div>
     }
 
-    const ShowAllGenre = () => {
-        return <div className={styles.popupforGenre + " d-flex justify-content-center p-2"}>
-            <div className='row p-2'>
-                {props.genre.map(item => {
-                    return selectedItems(item);
-                })}
-            </div>
-        </div>
+    function valuetext(value) {
+        return `${value}°C`;
     }
 
-    const releaseYearChangeHandler = (e) => {
-        const year = e.target.value;
+    const [value, setValue] = React.useState([2000, new Date().getFullYear()]);
+
+    const handleChange = (event, year) => {
         setReleaseYear(year);
-    }
+    };
 
-    const ShowPopupforYear = () => {
-        return <div className={styles.popupforRelease + " p-2"}>
-        <input type="range" className="form-range" value={releaseYear} onChange={releaseYearChangeHandler} min="1900" max="2022" id="customRange2"/>
-        <div className='row'>
-            <span className='col-6 text-start'>1900</span>
-            <span className='col-6 text-end'>{new Date().getFullYear()}</span>
-        </div>
-    </div>
-    }
 
     const setProvider = (id) => {
         setSelectedProvider(`&with_watch_providers=${id}`);
@@ -130,33 +137,67 @@ const Genre = (props) => {
                 <h5 ref={movieType} onClick={() => data("movie")}>Movies</h5>
                 <h5 ref={tvType} onClick={() => data("tv")}>Series</h5>
             </div>
-            <div className={styles.Filter}>
-                <h5>Filter By</h5>
-            </div>
             <div className={styles.Type}>
                 {/* For Release Year */}
-                <div className='mx-2'>
-                    <button className='btn btn-warning' onClick={() => {
-                        setShow(!show)
-                        setShowGenre(false)
-                    }
-                    }>Release Year</button>
-                    {show && ShowPopupforYear()}
+                <div className={styles.typeBtnHolder}>
+                    <Button sx={{ mx: 1 }} variant="contained" onClick={handleClick}>Release Year</Button>
+                    <Popover
+                        open={openYear}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                    >
+                        <div className={styles.popupforRelease}>
+                            <div className='row'>
+                                <span className='col-6 text-start'>1900</span>
+                                <span className='col-6 text-end'>{new Date().getFullYear()}</span>
+                            </div>
+                            <Slider
+                                min={1900}
+                                max={new Date().getFullYear()}
+                                value={releaseYear}
+                                onChange={handleChange}
+                                valueLabelDisplay="auto"
+                                size="small"
+                                getAriaValueText={valuetext}
+                            />
+                            {/* <input type="range" className="form-range" value={releaseYear} onChange={releaseYearChangeHandler} min="1900" max="2022" id="customRange2" />*/}
+
+                        </div>
+                    </Popover>
                 </div>
                 {/* For Genre */}
-                <div className='mx-2'>
-                    <button className='btn btn-warning' onClick={() => {
-                        setShowGenre(!showGenre)
-                        setShow(false)
-                    }}>Genre</button>
-                    {showGenre && ShowAllGenre()}
-                </div>
+                <div className={styles.typeBtnHolder}>
+                    <Button sx={{ mx: 1 }} variant="contained" onClick={handleGenre}>Genre</Button>
+                    <Popover
+                        open={openGenre}
+                        anchorEl={anchorElGenre}
+                        onClose={genreClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                    >
+                        <div className={styles.popupforGenre}>
+                            <div className='row p-2'>
+                                {props.genre.map(item => {
+                                    return selectedItems(item);
+                                })}
+                            </div>
+                        </div>
 
+                    </Popover>
+                </div>
             </div>
         </div>
 
         <div className={styles.DataContainer}>
-            {props.discover.map((item) => <MovieItem key={item.id} data={item} />)
+            {props.discover
+                ? props.discover.map((item) => <MovieItem key={item.id} data={item} />)
+                : <Spinner />
             }
         </div>
         <LoadMore clicked={() => setPage(Page + 1)} />
@@ -167,14 +208,15 @@ const mapStateToProps = state => {
     return {
         discover: state.movie.discover,
         allProvider: state.provider.allProviders,
-        genre: state.movie.genre
+        genre: state.movie.genre,
+        loading: state.movie.loading
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         loadGenre: (type) => dispatch(actions.getGenre(type)),
-        fetchDiscover: (url) => dispatch(actions.getDiscover(url)),
+        fetchDiscover: (Type, Page, filterYear, filterGenre, selectedProvider) => dispatch(actions.getDiscover(Type, Page, filterYear, filterGenre, selectedProvider)),
         getAllProviders: (type) => dispatch(actions.getAllProviders(type)),
     }
 }

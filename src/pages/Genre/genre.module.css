@@ -8,22 +8,26 @@
 
 .DataContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
 }
 
 .Type {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .FilterArea {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 20px 0;
     display: flex;
+    
 }
 
 .Filter {
     margin-right: 10px;
     color: grey;
+    display: flex;
+    align-items: center;
 }
 
 .Type h5 {
@@ -42,23 +46,15 @@
     border-bottom: 2px solid #b41010;
 }
 
-.providerHolder {
-}
-
 .popupforRelease {
-    position: absolute;
-    z-index: 10;
     width: 300px;
-    padding-top: 10px;
-    background-color: gray;
+    padding: 10px 25px;
 }
 
 .popupforGenre {
-    background-color: gray;
-    position: absolute;
     width: 500px;
-    z-index: 10;
 }
+
     
 .genreOption {
     border-radius: 5px;
@@ -68,4 +64,62 @@
 
 .genreOption:hover {
     background-color: gainsboro;
+}
+
+
+
+@media (max-width:480px) {
+    .container {
+        padding: 0 1em;
+    }
+
+    .DataContainer {
+        display: grid;
+        grid-template-columns: auto auto auto;
+}
+    .FilterArea {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: block;
+
+    }
+    .Type {
+        display: flex;
+        justify-content:space-around;
+        margin-top: 10px;
+    }
+
+    .Type .typeBtnHolder {
+        width: 100%;
+        margin-right: 5px;
+    }
+
+    .Type .typeBtnHolder button {
+        width: 100%;
+    }
+
+    .Type h5 {
+        width:100%;
+        text-align: center;
+        margin-right: 0;
+    }
+    .Filter {
+        display:none;
+    }
+
+    .popupforRelease {
+        width: 300px;
+        padding: 10px 25px;
+    }
+    
+    .popupforGenre {
+        width: 100%;
+    }
+}
+
+@media (min-width:481px) and (max-width:1366px) {
+    .DataContainer {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+    }
 }

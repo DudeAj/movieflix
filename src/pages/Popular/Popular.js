@@ -23,7 +23,7 @@ const Popular = (props) => {
         <div className={styles.container}>
             <h3 className={styles.Heading}>Popular Movies</h3>
             <div className={styles.DataContainer}>
-                {props.MovieData.map((item) => <MovieItem key={item.id} data={item} />)
+                {props.MovieData.map((item, index) => <MovieItem key={index} data={item} />)
                 }
             </div>
             <LoadMore clicked={() => setPage(Page + 1)} />

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import styles from './Cast.module.css';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import placeHolderImage from '../../assets/images/placeholderImage.png'
 
 const responsive = {
     superLargeDesktop: {
@@ -34,7 +35,7 @@ const Cast = (props) => {
     useEffect(() => {
         axios.get(castUrl)
             .then(res => {
-                
+
                 setCast(res.data.cast)
             })
             .catch(err => {
@@ -45,26 +46,26 @@ const Cast = (props) => {
         <div className={styles.PeopleContainer}>
             <span>{props.heading}</span>
             <div className={styles.DataHolder}>
-            <Carousel
-                swipeable={true}
-                draggable={false}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                autoPlaySpeed={1000}
-                keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-                itemClass="carousel-item-padding-50-px"
-            >
-                {cast && cast.map(movieCast => {
-                    return <div className={styles.peopleholder} key={movieCast.id}>
-                        <img src={castImg+movieCast.profile_path} />
-                        <span className={styles.Name}>{movieCast.name}</span>
-                        {/* <p className={styles.Role}>{movieCast.character}</p> */}
-                    </div>
-                })}
+                <Carousel
+                    swipeable={true}
+                    draggable={false}
+                    responsive={responsive}
+                    ssr={true} // means to render carousel on server-side.
+                    autoPlaySpeed={1000}
+                    keyBoardControl={true}
+                    customTransition="all .5"
+                    transitionDuration={500}
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    itemClass="carousel-item-padding-50-px"
+                >
+                    {cast && cast.map(movieCast => {
+                        return <div className={styles.peopleholder} key={movieCast.id}>
+                            <img src={castImg + movieCast.profile_path} />
+                            <span className={styles.Name}>{movieCast.name}</span>
+                            {/* <p className={styles.Role}>{movieCast.character}</p> */}
+                        </div>
+                    })}
                 </Carousel>
             </div>
         </div>

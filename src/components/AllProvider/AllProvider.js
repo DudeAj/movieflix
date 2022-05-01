@@ -8,12 +8,12 @@ const AllProvider = ({ items, handleProvider }) => {
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 3000 },
-            items: 15
+            breakpoint: { max: 4000, min: 1366 },
+            items: 17
         },
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 17
+            breakpoint: { max: 1366, min: 1024 },
+            items: 14
         },
         tablet: {
             breakpoint: { max: 1024, min: 700 },
@@ -21,7 +21,7 @@ const AllProvider = ({ items, handleProvider }) => {
         },
         mobile: {
             breakpoint: { max: 700, min: 0 },
-            items: 6
+            items: 7
         }
     };
     return <Carousel
@@ -38,7 +38,7 @@ const AllProvider = ({ items, handleProvider }) => {
         itemClass="carousel-item-padding-10-px"
     >
         {items && items.map(pro => {
-            return <div className={styles.provider} key={pro.provider_id} onClick={()=> handleProvider(pro.provider_id)}>
+            return <div className={styles.provider} key={pro.provider_id} onClick={() => handleProvider(pro.provider_id)}>
                 <img src={originalURL + pro.logo_path} />
                 {/* <p className={styles.Role}>{movieCast.character}</p> */}
             </div>

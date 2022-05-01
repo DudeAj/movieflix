@@ -1,8 +1,16 @@
 .provider{
     padding: 5px;
+    cursor: pointer;
 }
 
 .provider img {
     width: 70px;
     border-radius: 10%;
+}
+
+@media (max-width:480px) {
+    .provider img {
+        width: 40px;
+        border-radius: 10%;
+    }
 }

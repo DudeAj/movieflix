@@ -1,5 +1,7 @@
 import * as actionTypes from '../actionTypes';
 import axios from 'axios';
+import customeReq from '../../utils/customReq';
+import { toast } from 'react-toastify';
 
 const trendingData = '/3/trending/all/day';
 const popularMovieLink = "/3/movie/popular?page=";
@@ -11,7 +13,7 @@ const latestTv = "/3/discover/tv?include_adult=false";
 const StartLoading = () => {
     return {
         type: actionTypes.START_LOADING,
-        payload:true
+        payload: true
     }
 }
 
@@ -22,18 +24,19 @@ export const setDiscover = (data) => {
     }
 }
 
-export const getDiscover = (url) => {
+export const getDiscover = (Type, Page, filterYear, filterGenre, selectedProvider) => {
     return dispatch => {
         StartLoading(true);
-        axios.get(url).then(response => {
+
+        axios.get(`3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`).then(response => {
             //console.log(response.data);
             dispatch(setDiscover(response.data.results))
             StartLoading(false);
         })
-        .catch(error => {
-            console.log(error);
-            StartLoading(false);
-        })
+            .catch(error => {
+                console.log(error);
+                StartLoading(false);
+            })
     }
 }
 
@@ -147,6 +150,36 @@ export const getLatestTv = () => {
             .catch(err => {
                 console.log(err)
             })
+    }
+}
+
+const setWatchList = (data) => {
+    return {
+        type: actionTypes.SET_WATCHLIST,
+        payload: data
+    }
+}
+
+export const fetchWatchList = (token) => {
+    return async dispatch => {
+        try {
+            const watchList = await customeReq.get('watch/watchlist', {
+                headers: {
+                    "auth-token": token
+                }
+            });
+
+            if (watchList.data.status) {
+                console.log(watchList.data)
+                dispatch(setWatchList(watchList.data.results))
+            } else {
+                toast.error("Login before adding new movie to watchlist")
+                console.log(watchList.data.message)
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
 }
 

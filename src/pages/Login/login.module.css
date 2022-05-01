@@ -1,0 +1,55 @@
+.LoginContainer {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    
+}
+
+.formContainer {
+
+    padding:20px 30px;
+    width: 50%;
+}
+
+.inputHolder {
+    display: block;
+    
+    padding-bottom: 20px;
+    
+}
+
+.inputHolder label {
+    width: 100%;
+}
+
+.inputHolder input {
+    width: 100%;
+    border-radius:5px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-size:14px;
+    border:1px solid grey;
+}
+
+.LoginButton {
+    padding: 10px;
+    border: none;
+    font-size:14px;
+    width: 100px;
+    border-radius: 5px;
+    background-color:#1c252f;
+    color: #fff;
+}
+
+.LoginButton:hover {
+    background-color: #394047;
+}
+
+.bottomButton {
+    margin-top: 10px;
+    font-size: 14px;
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+}
