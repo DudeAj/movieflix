@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Car from "react-multi-carousel";
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieItem from './MovieItem/MovieItem';
 import styles from './MovieItems.module.css';
 import axios from 'axios';
-import { Carousel } from '@trendyol-js/react-carousel';
+
 
 const responsive = {
     superLargeDesktop: {
@@ -44,12 +44,8 @@ const MovieItems = (props) => {
     return (
         <div className={styles.TypeHolder}>
             <p>{props.rowTitle}</p>
-            {<Carousel show={3.5} slide={3} swiping={true}>
-            {items.map(item => {
-                    return <MovieItem key={item.id} data={item} />
-                })}
-            </Carousel>}
-            <Car
+            
+            <Carousel
                 swipeable={true}
                 draggable={false}
                 responsive={responsive}
@@ -66,7 +62,7 @@ const MovieItems = (props) => {
                     return <MovieItem key={item.id} data={item} />
                 })}
 
-            </Car>
+            </Carousel>
         </div>
     )
 }
