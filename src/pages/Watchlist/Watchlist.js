@@ -12,9 +12,6 @@ const Watchlist = (props) => {
         props.loadWatchlist(props.token);
     }, [props.token]);
 
-
-    console.log("location", pathname);
-
     if (!props.isLoggedin) {
         return <Navigate to={"/login"} state={pathname} />
     }

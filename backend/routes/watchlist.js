@@ -27,26 +27,47 @@ router.get('/watchlist', auth, async (req, res, next) => {
     try {
         WatchlistModel.find({ userid: tokeninfo.id }, (err, result) => {
             if (err) throw new AppError(err, 404);
-
             if (result) {
                 const responsedata = [];
                 result.forEach(item => {
+                    if(!item.watched){
                     const dataset = {
                         id: item._id,
                         itemId: item.itemId,
                         poster: item.poster,
                         type: item.type,
+                        watched: item.watched
                     }
                     responsedata.push(dataset)
+                }
+                   
                 })
                 console.log(result)
                 res.json({ sendStatus: 200, status: 1, results: responsedata });
             }
         })
     } catch (err) {
-
+        next(err, 404)
     }
-})
+});
+
+router.post('/add-watched', auth, async (req, res, next) => {
+    const { tokeninfo } = req;
+    const { itemId } = req.body;
+
+    try {
+        //find and update the watched status
+        WatchlistModel.findOneAndUpdate({ userid: tokeninfo.id, itemId: itemId }, { watched: true }, (err, result) => {
+            if (err) throw new AppError(err, 404);
+            if (result) {
+                res.json({ sendStatus: 200, status: 1, message: "Added to Watched" });
+            }
+        });
+    }
+    catch (err) {
+        next(err, 404)
+    }
+});
 
 
 module.exports = router;

@@ -9,8 +9,11 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import placeholderImage from '../../assets/images/placeholderImage.png'
 import customeReq from '../../utils/customReq';
 import * as actions from '../../store/actions'
+import { Navigate , useNavigate} from 'react-router-dom';
 
-const leftdetails = (props) => {
+const Leftdetails = (props) => {
+
+    const navigate = useNavigate();
 
     // const seasonNumber = params.season ? params.season.split('-')[1] : null;
     const imgBaseURL = "https://www.themoviedb.org/t/p/w220_and_h330_face";
@@ -37,8 +40,7 @@ const leftdetails = (props) => {
     }
 
     const found = props.watchlist.find(movie => movie.itemId === props.item.id) ? true : false;
-
-
+    
     return (
         <div className={styles.Left}>
             {props.item.poster_path ? <img src={imgBaseURL + poster} /> : <img src={placeholderImage} />}
@@ -60,7 +62,7 @@ const leftdetails = (props) => {
                 </div>
             </div>
 
-            {!props.isLoggedin && <button className={styles.btn}>Sign In To sync Watchlist</button>}
+            {!props.isLoggedin && <button className={styles.btn} onClick={()=>navigate("/login")}>Sign In To sync Watchlist</button>}
             <hr style={{ borderColor: 'grey' }} />
 
             <Moviebasic genres={props.item.genres} runtime={props.item.episode_run_time || props.item.runtime} rating={props.item.vote_average} />
@@ -82,4 +84,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(leftdetails);
+export default connect(mapStateToProps, mapDispatchToProps)(Leftdetails);

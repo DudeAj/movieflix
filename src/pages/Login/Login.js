@@ -21,8 +21,6 @@ const Login = (props) => {
   const [Loading, setLoading] = useState(false);
   const [redirectToReferrer, setRedirectToReferrer] = useState(false)
 
-  console.log("from", state)
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -79,7 +77,7 @@ const Login = (props) => {
           email: email,
           password: password
         });
-      props.login(user.accessToken);
+      props.login(user.data.token);
       toast.success("Registered Successfully")
 
       setLoading(false);
@@ -101,7 +99,7 @@ const Login = (props) => {
         <form onSubmit={handleLogin}>
 
           {!loginType && <div className={styles.inputHolder}>
-            <label htmlFor="name">Email</label>
+            <label htmlFor="name">Name</label>
             <input id="name" type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
           </div>}
 

@@ -15,7 +15,7 @@ import * as actions from './store/actions';
 import Popular from './pages/Popular/Popular';
 import Watchlist from './pages/Watchlist/Watchlist'
 import Genre from './pages/Genre/Genre';
-import Backdrop from './components/Backdrop/Backdrop';
+import Backdrop from './components/Backdrop/backdrop';
 import "./firebase";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -48,7 +48,7 @@ const App = (props) => {
     <div>
 
       <div className="App">
-        <ToastContainer autoClose={2000} />
+        {/* <ToastContainer autoClose={2000} /> */}
 
         {props.backdropState && <Backdrop />}
         <Routes>

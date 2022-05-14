@@ -17,6 +17,11 @@ const watchlist = new Schema({
     type: {
         type: String,
         required: true
+    },
+    watched:{
+        type: Boolean,
+        require:true,
+        default: false
     }
 }, { timestamps: true });
 

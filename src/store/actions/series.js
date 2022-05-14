@@ -172,10 +172,7 @@ export const fetchWatchList = (token) => {
             if (watchList.data.status) {
                 console.log(watchList.data)
                 dispatch(setWatchList(watchList.data.results))
-            } else {
-                toast.error("Login before adding new movie to watchlist")
-                console.log(watchList.data.message)
-            }
+            } 
         }
         catch (err) {
             console.log(err)

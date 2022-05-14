@@ -55,6 +55,10 @@
     align-content: center;
 }
 
+.Menuicon {
+    cursor: pointer;
+}
+
 .ProfileDetails button {
     color: #ffffff;
     padding: 7px 12px;

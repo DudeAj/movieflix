@@ -34,7 +34,6 @@ router.post('/login', (req, res, next) => {
                 } else {
                     const err = new AppError('Email / Password is incorrect', 404)
                     next(err)
-
                 }
             }
             else {

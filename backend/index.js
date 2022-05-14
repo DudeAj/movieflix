@@ -15,7 +15,7 @@ app.use('/public', express.static('public'));
 app.use('/api/watch', WatchlistRoutes);
 app.use("/api/user", UserRoutes);
 
-mongoose.connect("mongodb://localhost:27017/movieflix", (err, res) => {
+mongoose.connect(process.env.MONGO_URL, (err, res) => {
     if (err) throw err;
     console.log("connected with the database")
 });

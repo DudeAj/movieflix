@@ -1,6 +1,7 @@
 .Container {
     margin: 5px;
     cursor: pointer;
+    position: relative;
 }
 
 .ImageHolder {
@@ -10,9 +11,45 @@
     transition: opacity .1s ease;
     border-radius: 5px;
     z-index: 0;
+    background-color: orange;
+}
+
+.watchedButton {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+    background-color: #00000050;
+    cursor: pointer;
+    padding: 3px;
+
+}
+
+.checkIcon {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    z-index: 1500;
+    background-color: #00000050;
+    cursor: pointer;
+    padding: 3px;
+
+}
+
+.icon:hover {
+    background-color: #00000080;
+}
+
+.checkIcon:hover {
+    background-color: #00000080;
 }
 
 .ImageHolder img {
     width: 100%;
 }
-
