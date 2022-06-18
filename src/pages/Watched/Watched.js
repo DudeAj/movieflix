@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {fetchWatched, deleteItem } from '../../store/actions';
+import { fetchWatched, deleteItem } from '../../store/actions';
 import styles from './Watched.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import AuthContext from '../../context/auth';
@@ -9,8 +9,6 @@ import AuthContext from '../../context/auth';
 const Watched = (props) => {
     const { pathname } = useLocation();
     const authCtx = React.useContext(AuthContext);
-
-    console.log("userLoggedin",authCtx)
 
     useEffect(() => {
         props.loadWatched();
@@ -21,13 +19,16 @@ const Watched = (props) => {
     }
 
     const deleteItem = (id) => {
+        console.log("triggered")
         props.deleteItem(id);
+        props.loadWatched();
+
     }
     return (
         <div className={styles.container}>
             <h3 className={styles.Heading}>Already Watched</h3>
             <div className={styles.DataContainer}>
-                {props.watched && props.watched.map((item) => <MovieItem key={item.id} data={item} deleteItem={deleteItem}/>)
+                {props.watched && props.watched.map((item) => <MovieItem key={item.id} data={item} deleteItem={deleteItem} />)
                 }
             </div>
             {/* <LoadMore clicked={() => setPage(Page + 1)} /> */}

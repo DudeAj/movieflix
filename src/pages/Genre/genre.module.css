@@ -53,13 +53,30 @@
 
 .popupforGenre {
     width: 500px;
+
+
 }
+
+.genreRow {
+    padding: 10px;
+    display: flex;
+        flex-wrap: wrap;
+}
+
 
     
 .genreOption {
+    flex: 50%;
+    padding: 5px;
+    padding-left: 10px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 1px;
+}
+
+.selected {
+    background-color: black;
+    color: #fff;
 }
 
 .genreOption:hover {

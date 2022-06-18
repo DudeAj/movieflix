@@ -10,9 +10,8 @@ const Watchlist = (props) => {
     const { pathname } = useLocation();
     const authCtx = React.useContext(AuthContext);
 
-    console.log("userLoggedin", authCtx)
-
     useEffect(() => {
+        console.log("triggerd watchlist")
         props.loadWatchlist();
     }, [authCtx]);
 
@@ -21,7 +20,7 @@ const Watchlist = (props) => {
     }
 
     const addItemToWatchList = (id) => {
-
+        console.log("add to list")
         props.addItemToWatched(id);
     }
 

@@ -63,7 +63,6 @@ const Genre = (props) => {
         props.getAllProviders(Type)
         props.loadGenre(Type);
         data(Type);
-        // const discoverLink = `3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`;
         props.fetchDiscover(Type, Page, filterYear, filterGenre, selectedProvider);
 
 
@@ -98,10 +97,10 @@ const Genre = (props) => {
     const selectedItems = (item) => {
         let selectedClass;
         if (selectedGenre.includes(item.id)) {
-            selectedClass = styles.genreOption + ' col-6 text-white bg-dark';
+            selectedClass = styles.genreOption + " " + styles.selected;
         }
         else {
-            selectedClass = styles.genreOption + ' col-6 text-black';
+            selectedClass = styles.genreOption + " " + styles.unselected;
         }
         return <div
             className={selectedClass}
@@ -182,7 +181,7 @@ const Genre = (props) => {
                         }}
                     >
                         <div className={styles.popupforGenre}>
-                            <div className='row p-2'>
+                            <div className={styles.genreRow}>
                                 {props.genre.map(item => {
                                     return selectedItems(item);
                                 })}

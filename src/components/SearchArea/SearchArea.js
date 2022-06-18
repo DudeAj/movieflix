@@ -31,22 +31,24 @@ const SearchArea = (props) => {
     return (
         <div className={styles.SearchAreaContainer}>
             <div className={styles.searchAreaHolder}>
-                <div className={styles.MovieTvContainer}>
-                    <p className={styles.typeHeading}>Movies</p>
-                    {movies.map((item) => {
-                        if (item.media_type !== 'people') {
-                            return (<SearchItem key={item.id} data={item} />);
-                        }
-                    })}
-                </div>
-                <div className={styles.PeopleContainer}>
-                    <p className={styles.typeHeading}>Shows</p>
-                    {series.map((item) => {
-                        if (item.media_type !== 'people') {
-                            return (<SearchItem key={item.id} data={item} />);
-                        }
-                    })}
-                </div>
+                {props.items.length ? <>
+                    <div className={styles.MovieTvContainer}>
+                        <p className={styles.typeHeading}>Movies</p>
+                        {movies.map((item) => {
+                            if (item.media_type !== 'people') {
+                                return (<SearchItem key={item.id} data={item} />);
+                            }
+                        })}
+                    </div>
+                    <div className={styles.PeopleContainer}>
+                        <p className={styles.typeHeading}>Shows</p>
+                        {series.map((item) => {
+                            if (item.media_type !== 'people') {
+                                return (<SearchItem key={item.id} data={item} />);
+                            }
+                        })}
+                    </div>
+                </> : null}
             </div>
             <div className={styles.MoreHolder}>
                 <span>See All Results</span>

@@ -23,7 +23,7 @@ export const fetchWatchList = () => {
             const watchList = await customeReq.get('watch/watchlist');
             if (watchList.data.status) {
                 dispatch(setWatchList(watchList.data.results))
-            } 
+            }
         }
         catch (err) {
             console.log(err)
@@ -35,10 +35,10 @@ export const fetchWatched = () => {
     return async dispatch => {
         try {
             const watched = await customeReq.get('watch/watched');
-            console.log("watched", watched)
+
             if (watched.data.status) {
                 dispatch(setWatched(watched.data.results))
-            } 
+            }
         }
         catch (err) {
             console.log(err)
@@ -49,14 +49,14 @@ export const fetchWatched = () => {
 export const AddToWatched = (id) => {
     return async dispatch => {
         try {
-            const postBody = {itemId:id};
-            const watchList = await customeReq.post('watch/add-watched',postBody );
-            console.log("response", watchList)
+            const postBody = { itemId: id };
+            const watchList = await customeReq.post('watch/add-watched', postBody);
+
             dispatch(fetchWatchList())
 
 
         }
-        catch(error) {
+        catch (error) {
             console.log(error)
         }
     }
@@ -65,14 +65,15 @@ export const AddToWatched = (id) => {
 export const deleteItem = (id) => {
     return async dispatch => {
         try {
-            const postBody = {itemId:id};
-            const watchList = await customeReq.post('watch/delete',postBody );
-            console.log("response", watchList)
+            const postBody = { itemId: id };
+            const deletedItem = await customeReq.post('watch/delete', postBody);
+
             dispatch(fetchWatchList())
+            dispatch(fetchWatched())
 
 
         }
-        catch(error) {
+        catch (error) {
             console.log(error)
         }
     }

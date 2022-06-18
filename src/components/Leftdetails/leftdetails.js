@@ -1,4 +1,4 @@
-import React , {useContext} from 'react';
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import styles from './leftdetails.module.css';
 import Moviebasic from '../movieBasic/moviebasic';
@@ -9,7 +9,7 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import placeholderImage from '../../assets/images/placeholderImage.png'
 import customeReq from '../../utils/customReq';
 import * as actions from '../../store/actions'
-import { Navigate , useNavigate} from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/auth';
 
 const Leftdetails = (props) => {
@@ -25,20 +25,20 @@ const Leftdetails = (props) => {
     const type = props.item.original_title ? 'movie' : 'tv';
 
     const addWatchList = async () => {
-
         const response = await customeReq.post('/watch/add-watchlist', {
             itemId: props.item.id,
             poster: poster,
             type: type
         });
+        console.log('response', response)
 
         props.loadWatchList(props.authToken);
-        console.log("response", response);
+
         // console.log("added to watch List", poster, type, props.item.id)
     }
 
-    const found = props.watchlist.find(movie => movie.itemId === props.item.id) ? true : false;
-    
+    const found = props.watchlist.find(movie => movie.itemId === props.item.id) || props.watched.find(movie => movie.itemId === props.item.id) ? true : false;
+    console.log("found", found)
     return (
         <div className={styles.Left}>
             {props.item.poster_path ? <img src={imgBaseURL + poster} /> : <img src={placeholderImage} />}
@@ -60,8 +60,8 @@ const Leftdetails = (props) => {
                 </div>
             </div>
 
-            {!authCtx.isLoggedin && <button className={styles.btn} onClick={()=>navigate("/login")}>Sign In To sync Watchlist</button>}
-            <hr style={{ borderColor: 'grey', marginTop:"10px" }} />
+            {!authCtx.isLoggedin && <button className={styles.btn} onClick={() => navigate("/login")}>Sign In To sync Watchlist</button>}
+            <hr style={{ borderColor: 'grey', marginTop: "10px" }} />
 
             <Moviebasic genres={props.item.genres} runtime={props.item.episode_run_time || props.item.runtime} rating={props.item.vote_average} />
         </div>
@@ -72,7 +72,8 @@ const mapStateToProps = state => {
     return {
         isLoggedin: state.auth.isLoggedin,
         authToken: state.auth.userToken,
-        watchlist: state.movie.watchlist
+        watchlist: state.movie.watchlist,
+        watched: state.movie.watched
     }
 }
 
