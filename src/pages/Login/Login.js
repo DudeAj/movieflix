@@ -8,11 +8,13 @@ import { useNavigate, useLocation, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import customeReq from '../../utils/customReq';
 import { toast } from 'react-toastify';
+import AuthContext from '../../context/auth';
 
 const Login = (props) => {
 
   const navigate = useNavigate();
   const { state } = useLocation();
+  const authCtx = React.useContext(AuthContext);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,9 +37,10 @@ const Login = (props) => {
         email: email,
         password: password,
       });
-      console.log(user.data)
-
+    
       if (user.data.status) {
+        
+        authCtx.login(user.data.token, user.data.result.name, user.data.result.email);
         props.login(user.data.token);
         setLoading(false);
         toast.success("Login Successful");

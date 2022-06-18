@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchWatchList, AddToWatched, deleteItem } from '../../store/actions';
-import styles from './Watchlist.module.css';
+import {fetchWatched, deleteItem } from '../../store/actions';
+import styles from './Watched.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import AuthContext from '../../context/auth';
 
-const Watchlist = (props) => {
+const Watched = (props) => {
     const { pathname } = useLocation();
     const authCtx = React.useContext(AuthContext);
 
-    console.log("userLoggedin", authCtx)
+    console.log("userLoggedin",authCtx)
 
     useEffect(() => {
-        props.loadWatchlist();
+        props.loadWatched();
     }, [authCtx]);
 
     if (!authCtx.isLoggedin) {
         return <Navigate to={"/login"} state={pathname} />
-    }
-
-    const addItemToWatchList = (id) => {
-
-        props.addItemToWatched(id);
     }
 
     const deleteItem = (id) => {
@@ -30,12 +25,10 @@ const Watchlist = (props) => {
     }
     return (
         <div className={styles.container}>
-            <h3 className={styles.Heading}>My Watchlist</h3>
-            <div className={styles.MovieContainer}>
-                <div className={styles.DataContainer}>
-                    {props.watchlist && props.watchlist.map((item) => <MovieItem key={item.id} data={item} addWatched={addItemToWatchList} deleteItem={deleteItem} />)
-                    }
-                </div>
+            <h3 className={styles.Heading}>Already Watched</h3>
+            <div className={styles.DataContainer}>
+                {props.watched && props.watched.map((item) => <MovieItem key={item.id} data={item} deleteItem={deleteItem}/>)
+                }
             </div>
             {/* <LoadMore clicked={() => setPage(Page + 1)} /> */}
         </div>
@@ -46,17 +39,16 @@ const mapStateToProps = (state) => {
     return {
         isLoggedin: state.auth.isLoggedin,
         token: state.auth.userToken,
-        watchlist: state.movie.watchlist
+        watched: state.movie.watched
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadWatchlist: () => dispatch(fetchWatchList()),
-        addItemToWatched: (id) => dispatch(AddToWatched(id)),
+        loadWatched: () => dispatch(fetchWatched()),
         deleteItem: (id) => dispatch(deleteItem(id))
 
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Watchlist);
+export default connect(mapStateToProps, mapDispatchToProps)(Watched);

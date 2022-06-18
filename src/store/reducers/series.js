@@ -9,6 +9,7 @@ const initialState = {
     genre: [],
     discover: [],
     watchlist: [],
+    watched:[],
     loading: false
 }
 
@@ -68,6 +69,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 watchlist: action.payload
+            }
+
+        case actionTypes.SET_WATCHED:
+            return {
+                ...state,
+                watched: action.payload
             }
         default:
             return state;

@@ -153,32 +153,6 @@ export const getLatestTv = () => {
     }
 }
 
-const setWatchList = (data) => {
-    return {
-        type: actionTypes.SET_WATCHLIST,
-        payload: data
-    }
-}
-
-export const fetchWatchList = (token) => {
-    return async dispatch => {
-        try {
-            const watchList = await customeReq.get('watch/watchlist', {
-                headers: {
-                    "auth-token": token
-                }
-            });
-
-            if (watchList.data.status) {
-                console.log(watchList.data)
-                dispatch(setWatchList(watchList.data.results))
-            } 
-        }
-        catch (err) {
-            console.log(err)
-        }
-    }
-}
 
 
 

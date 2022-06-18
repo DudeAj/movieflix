@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useContext} from 'react';
 import { connect } from 'react-redux';
 import styles from './leftdetails.module.css';
 import Moviebasic from '../movieBasic/moviebasic';
@@ -10,10 +10,12 @@ import placeholderImage from '../../assets/images/placeholderImage.png'
 import customeReq from '../../utils/customReq';
 import * as actions from '../../store/actions'
 import { Navigate , useNavigate} from 'react-router-dom';
+import AuthContext from '../../context/auth';
 
 const Leftdetails = (props) => {
 
     const navigate = useNavigate();
+    const authCtx = useContext(AuthContext)
 
     // const seasonNumber = params.season ? params.season.split('-')[1] : null;
     const imgBaseURL = "https://www.themoviedb.org/t/p/w220_and_h330_face";
@@ -28,10 +30,6 @@ const Leftdetails = (props) => {
             itemId: props.item.id,
             poster: poster,
             type: type
-        }, {
-            headers: {
-                "auth-token": props.authToken
-            }
         });
 
         props.loadWatchList(props.authToken);
@@ -62,8 +60,8 @@ const Leftdetails = (props) => {
                 </div>
             </div>
 
-            {!props.isLoggedin && <button className={styles.btn} onClick={()=>navigate("/login")}>Sign In To sync Watchlist</button>}
-            <hr style={{ borderColor: 'grey' }} />
+            {!authCtx.isLoggedin && <button className={styles.btn} onClick={()=>navigate("/login")}>Sign In To sync Watchlist</button>}
+            <hr style={{ borderColor: 'grey', marginTop:"10px" }} />
 
             <Moviebasic genres={props.item.genres} runtime={props.item.episode_run_time || props.item.runtime} rating={props.item.vote_average} />
         </div>

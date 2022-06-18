@@ -6,9 +6,12 @@ import Logo from '../../assets/images/movieflix.png';
 import NavItem from './navItem/navItem';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
+import AuthContext from '../../context/auth';
 
 const Header = (props) => {
     const navigate = useNavigate();
+
+    const authCtx = React.useContext(AuthContext);
     return (
         <div className={header.headerContainer}>
             <div className={header.submenuContainer}>
@@ -21,6 +24,7 @@ const Header = (props) => {
                             <NavItem title="Home" value='' />
                             <NavItem title="Popular" value='popular' />
                             <NavItem title="Watchlist" value='watchlist' />
+                            <NavItem title="Watched" value='watched' />
                             <NavItem title="Genre" value='Genre' />
                         </ul>
 
@@ -31,7 +35,7 @@ const Header = (props) => {
                     <Search />
                 </div>
                 <div className={header.ProfileDetails}>
-                    {props.isLoggedIn ? <button onClick={() => navigate('/logout')}>Logout</button> : <button onClick={() => navigate('/login')}>SignIn</button>}
+                    { authCtx.isLoggedin ? <button onClick={() => navigate('/logout')}>Logout</button> : <button onClick={() => navigate('/login')}>SignIn</button>}
                     <MenuIcon className={header.Menuicon} />
                 </div>
             </div>

@@ -6,8 +6,15 @@ export {
     getLatestTv,
     getGenre,
     getDiscover,
-    fetchWatchList
+   
 } from './series'
+
+export {
+    fetchWatchList,
+    AddToWatched,
+    fetchWatched,
+    deleteItem
+} from './watchlist';
 
 export {
     getCountry,

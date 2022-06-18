@@ -15,10 +15,6 @@ const MovieItem = (props) => {
         props.deleteItem(props.data.itemId);
     }
 
-    const addToWatched = () => {
-        props.addWatched(props.data.itemId)
-    }
-
     const sendDetails = () => {
         navigate(`/details/${props.data.type}/${props.data.itemId}`);
     }
@@ -29,10 +25,9 @@ const MovieItem = (props) => {
             </div>
             
             <Delete className={styles.icon} onClick={deleteContent}/>
-            <Check className={styles.checkIcon} onClick={addToWatched}/>
             
         </div>
     )
 }
 
-export default MovieItem
+export default MovieItem;

@@ -10,7 +10,7 @@ const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
         breakpoint: { max: 4000, min: 1366 },
-        items: 10
+        items: 8
     },
     desktop: {
         breakpoint: { max: 1366, min: 1024 },

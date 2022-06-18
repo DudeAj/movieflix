@@ -3,9 +3,6 @@ import axios from 'axios';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
-
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
 import PagesContainer from './containers/PagesContainer/PagesContainer';
 import Detailspage from './pages/DetailsPage/detailspage';
 import Login from './pages/Login/Login';
@@ -13,14 +10,19 @@ import Logout from './pages/Logout/Logout';
 
 import * as actions from './store/actions';
 import Popular from './pages/Popular/Popular';
-import Watchlist from './pages/Watchlist/Watchlist'
+import Watchlist from './pages/Watchlist/Watchlist';
+import Watched from './pages/Watched/Watched';
 import Genre from './pages/Genre/Genre';
 import Backdrop from './components/Backdrop/backdrop';
 import "./firebase";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './hoc/Layout';
+import customAxios from './utils/customReq';
 
+
+
+customAxios.defaults.headers.common['auth-token'] = localStorage.getItem("movieToken");
 axios.defaults.baseURL = 'https://api.themoviedb.org';
 axios.interceptors.request.use(config => {
   config.params = {
@@ -32,7 +34,6 @@ axios.interceptors.request.use(config => {
 });
 
 const App = (props) => {
-
 
   useEffect(() => {
     props.loadTrending()
@@ -49,7 +50,6 @@ const App = (props) => {
 
       <div className="App">
         {/* <ToastContainer autoClose={2000} /> */}
-
         {props.backdropState && <Backdrop />}
         <Routes>
           <Route path='/' element={<Layout />} >
@@ -59,6 +59,7 @@ const App = (props) => {
             <Route path='/details/:type/:id/:season' exact element={<Detailspage />} />
             <Route path='/popular' element={<Popular />} />
             <Route path='/watchlist' element={<Watchlist />} />
+            <Route path='/watched' element={<Watched />} />
             <Route path='/genre' element={<Genre />} />
             <Route path='/logout' element={<Logout />} />
           </Route>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MovieItem.module.css';
 import { useNavigate } from 'react-router-dom';
+import Placeholder from '../../../assets/images/placeholderImage.png';
 
 
 const MovieItem = (props) => {
@@ -17,7 +18,11 @@ const MovieItem = (props) => {
     return (
         <div className={styles.Container} onClick={sendDetails}>
             <div className={styles.ImageHolder}>
-                <img src={imgBaseURL + props.data.poster_path} alt='not Loaded' />
+                {props.data.poster_path ? 
+                <img src={`${imgBaseURL}${props.data.poster_path}`} alt="poster" />
+                : <img src={Placeholder} alt="poster" />}
+            
+                {/* <img src={imgBaseURL + props.data.poster_path || Placeholder} alt='not Loaded' /> */}
             </div>
         </div>
     )

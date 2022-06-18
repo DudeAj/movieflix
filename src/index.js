@@ -12,7 +12,8 @@ import AuthReducer from './store/reducers/authentication';
 import UserReducer from './store/reducers/user';
 import watchProviderReducer from './store/reducers/provider';
 import itemReducer from './store/reducers/item';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
+import {AuthContextProvider} from './context/auth';
 
 const rootReducer = combineReducers({
   auth: AuthReducer,
@@ -27,9 +28,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
+    <AuthContextProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </AuthContextProvider>
   </Provider>,
   document.getElementById('root')
 );

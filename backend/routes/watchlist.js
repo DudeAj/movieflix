@@ -42,7 +42,34 @@ router.get('/watchlist', auth, async (req, res, next) => {
                 }
                    
                 })
-                console.log(result)
+                res.json({ sendStatus: 200, status: 1, results: responsedata });
+            }
+        })
+    } catch (err) {
+        next(err, 404)
+    }
+});
+
+router.get('/watched', auth, async (req, res, next) => {
+    const { tokeninfo } = req;
+    try {
+        WatchlistModel.find({ userid: tokeninfo.id }, (err, result) => {
+            if (err) throw new AppError(err, 404);
+            if (result) {
+                const responsedata = [];
+                result.forEach(item => {
+                    if(item.watched){
+                    const dataset = {
+                        id: item._id,
+                        itemId: item.itemId,
+                        poster: item.poster,
+                        type: item.type,
+                        watched: item.watched
+                    }
+                    responsedata.push(dataset)
+                }
+                   
+                })
                 res.json({ sendStatus: 200, status: 1, results: responsedata });
             }
         })
@@ -54,6 +81,8 @@ router.get('/watchlist', auth, async (req, res, next) => {
 router.post('/add-watched', auth, async (req, res, next) => {
     const { tokeninfo } = req;
     const { itemId } = req.body;
+
+    console.log("itemId", itemId)
 
     try {
         //find and update the watched status
@@ -68,6 +97,27 @@ router.post('/add-watched', auth, async (req, res, next) => {
         next(err, 404)
     }
 });
+
+router.post('/delete', auth, async (req, res, next) => {
+    const { tokeninfo } = req;
+    const { itemId } = req.body;
+
+    console.log("deleteid", itemId)
+
+    try {
+        //find and update the watched status
+        WatchlistModel.findOneAndRemove({ userid: tokeninfo.id, itemId: itemId }, (err, result) => {
+            if (err) throw new AppError(err, 404);
+            if (result) {
+                res.json({ sendStatus: 200, status: 1, message: "Item Successfully Deleted" });
+            }
+        });
+    }
+    catch (err) {
+        next(err, 404)
+    }
+});
+
 
 
 module.exports = router;

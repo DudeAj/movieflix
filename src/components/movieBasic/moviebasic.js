@@ -6,7 +6,7 @@ const moviebasic = (props) => {
     return (
         <div>
             <div className={styles.featureContainer}>
-                <div className={styles.Heading}><p>Rating:</p></div>
+                <div className={styles.Heading}>Rating:</div>
                 <div className={styles.Details}>{props.rating}(imdb)</div>
             </div>
 
