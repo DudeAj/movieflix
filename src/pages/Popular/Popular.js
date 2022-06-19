@@ -5,6 +5,8 @@ import MovieItem from '../../components/MovieItems/MovieItem/MovieItem';
 import LoadMore from '../../components/UI/LoadMore/LoadMore';
 import { getPopularMovie, getPopularTv } from '../../store/actions';
 
+import MovieItemShimmer from '../../Shimmer/MovieItemShimmer';
+
 const arraySuffle = (arr) => {
     return arr.sort(() => Math.random() - 0.5)
 }
@@ -22,10 +24,12 @@ const Popular = (props) => {
     return (
         <div className={styles.container}>
             <h3 className={styles.Heading}>Popular Movies</h3>
-            <div className={styles.DataContainer}>
+
+            <MovieItemShimmer/>
+            {/* <div className={styles.DataContainer}>
                 {props.MovieData.map((item, index) => <MovieItem key={index} data={item} />)
                 }
-            </div>
+            </div> */}
             <LoadMore clicked={() => setPage(Page + 1)} />
         </div>
     )

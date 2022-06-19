@@ -19,10 +19,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './hoc/Layout';
 import customAxios from './utils/customReq';
+import AuthContext from './context/auth';
 
-
-
-customAxios.defaults.headers.common['auth-token'] = localStorage.getItem("movieToken");
 axios.defaults.baseURL = 'https://api.themoviedb.org';
 axios.interceptors.request.use(config => {
   config.params = {
@@ -35,6 +33,9 @@ axios.interceptors.request.use(config => {
 
 const App = (props) => {
 
+  const authCtx = React.useContext(AuthContext);
+
+  customAxios.defaults.headers.common['auth-token'] = authCtx.token;
   useEffect(() => {
     props.loadTrending()
     props.loadPopular(1)

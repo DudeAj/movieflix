@@ -19,7 +19,6 @@ const Watched = (props) => {
     }
 
     const deleteItem = (id) => {
-        console.log("triggered")
         props.deleteItem(id);
         props.loadWatched();
 

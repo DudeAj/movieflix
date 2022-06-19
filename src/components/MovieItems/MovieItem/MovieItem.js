@@ -21,7 +21,6 @@ const MovieItem = (props) => {
                 {props.data.poster_path ? 
                 <img src={`${imgBaseURL}${props.data.poster_path}`} alt="poster" />
                 : <img src={Placeholder} alt="poster" />}
-            
                 {/* <img src={imgBaseURL + props.data.poster_path || Placeholder} alt='not Loaded' /> */}
             </div>
         </div>

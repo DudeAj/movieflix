@@ -8,7 +8,14 @@
 
 .DataContainer {
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
+   
+}
+
+.Shimmer {
+    margin: 5px;
+    
 }
 
 

@@ -11,7 +11,6 @@ const Watchlist = (props) => {
     const authCtx = React.useContext(AuthContext);
 
     useEffect(() => {
-        console.log("triggerd watchlist")
         props.loadWatchlist();
     }, [authCtx]);
 
