@@ -20,7 +20,7 @@ const Leftdetails = (props) => {
     // const seasonNumber = params.season ? params.season.split('-')[1] : null;
     const imgBaseURL = "https://www.themoviedb.org/t/p/w220_and_h330_face";
     const seasonNum = props.seasonNumber - 1 < 0 ? 1 : props.seasonNumber;
-    //console.log(seasonNum)
+    // 
     const poster = props.seasonNumber ? props.item.seasons[seasonNum - 1].poster_path : props.item.poster_path;
     const type = props.item.original_title ? 'movie' : 'tv';
 
@@ -30,15 +30,15 @@ const Leftdetails = (props) => {
             poster: poster,
             type: type
         });
-        console.log('response', response)
+
 
         props.loadWatchList(props.authToken);
 
-        // console.log("added to watch List", poster, type, props.item.id)
+        //  
     }
 
     const found = props.watchlist.find(movie => movie.itemId === props.item.id) || props.watched.find(movie => movie.itemId === props.item.id) ? true : false;
-    console.log("found", found)
+
     return (
         <div className={styles.Left}>
             {props.item.poster_path ? <img src={imgBaseURL + poster} /> : <img src={placeholderImage} />}

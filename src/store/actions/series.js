@@ -29,12 +29,12 @@ export const getDiscover = (Type, Page, filterYear, filterGenre, selectedProvide
         StartLoading(true);
 
         axios.get(`3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`).then(response => {
-            //console.log(response.data);
+            // 
             dispatch(setDiscover(response.data.results))
             StartLoading(false);
         })
             .catch(error => {
-                console.log(error);
+
                 StartLoading(false);
             })
     }
@@ -71,7 +71,7 @@ export const getTrending = () => {
                 dispatch(setTrending(res.data.results))
             })
             .catch(err => {
-                console.log(err)
+
             })
     }
 }
@@ -91,7 +91,7 @@ export const getPopularMovie = (page_num) => {
                 dispatch(setPopularMovie(res.data.results))
             })
             .catch(err => {
-                console.log(err)
+
             })
     }
 }
@@ -110,7 +110,7 @@ export const getPopularTv = (page_num) => {
                 dispatch(setPopularTv(res.data.results))
             })
             .catch(err => {
-                console.log(err)
+
             })
     }
 }
@@ -129,7 +129,7 @@ export const getLatestMovie = () => {
                 dispatch(setLatestMovie(res.data.results))
             })
             .catch(err => {
-                console.log(err)
+
             })
     }
 }
@@ -148,7 +148,7 @@ export const getLatestTv = () => {
                 dispatch(setLatestTv(res.data.results))
             })
             .catch(err => {
-                console.log(err)
+
             })
     }
 }

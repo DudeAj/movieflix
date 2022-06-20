@@ -19,9 +19,8 @@ const Watched = (props) => {
     }
 
     const deleteItem = (id) => {
-        props.deleteItem(id);
-        props.loadWatched();
 
+        props.deleteItem(id);
     }
     return (
         <div className={styles.container}>

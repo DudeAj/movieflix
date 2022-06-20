@@ -15,7 +15,7 @@ const responsive = {
     desktop: {
         breakpoint: { max: 1366, min: 1024 },
         items: 5
-},
+    },
     tablet: {
         breakpoint: { max: 1024, min: 700 },
         items: 4
@@ -38,14 +38,14 @@ const MovieItems = (props) => {
                 setItems(result);
             })
             .catch(err => {
-                console.log(err)
+
             })
     }, [])
 
     return (
         <div className={styles.TypeHolder}>
             <p>{props.rowTitle}</p>
-            
+
             <Carousel
                 swipeable={true}
                 draggable={false}

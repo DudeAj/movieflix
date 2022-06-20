@@ -5,15 +5,15 @@ import Episode from './Episode/Episode';
 
 const Episodes = (props) => {
     const [show, setShow] = useState(true)
-    console.log(props.episodes)
-    
+
+
     return (
         <div className={styles.EpisodeContainer}>
             <p className={styles.Heading}>{props.episodes.length} Episodes</p>
             <div className={styles.EpisodeHolder}>
                 {props.episodes.map((episode, index) => {
                     return (
-                        <Episode key={episode.id} episode={episode}/>
+                        <Episode key={episode.id} episode={episode} />
                     )
                 })}
             </div>

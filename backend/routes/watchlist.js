@@ -13,7 +13,7 @@ router.post('/add-watchlist', auth, async (req, res, next) => {
 
         WatchlistModel.find({ userid: tokeninfo.id, itemId: itemId }, (err, data) => {
             if (data.length > 0) {
-                console.log(data)
+
                 next(new AppError("Already in watchlist", 201));
             }
             else {
@@ -92,7 +92,7 @@ router.post('/add-watched', auth, async (req, res, next) => {
     const { tokeninfo } = req;
     const { itemId } = req.body;
 
-    console.log("itemId", itemId)
+
 
     try {
         //find and update the watched status
@@ -112,7 +112,7 @@ router.post('/delete', auth, async (req, res, next) => {
     const { tokeninfo } = req;
     const { itemId } = req.body;
 
-    console.log("deleteid", itemId)
+
 
     try {
         //find and update the watched status

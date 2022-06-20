@@ -22,11 +22,11 @@ export const getAllProviders = (type) => {
         const url = `/3/watch/providers/${type}?`
         axios.get(url)
             .then(response => {
-                //console.log(response.data.results);
+                // 
                 dispatch(setAllProviders(response.data.results))
             })
             .catch(err => {
-                console.log(err)
+
             })
     }
 }

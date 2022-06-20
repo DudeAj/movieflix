@@ -2,31 +2,22 @@ import React from 'react';
 import styles from './MovieItemShimmer.module.css';
 
 
-const MovieItemShimmer = () => {
+const MovieItemShimmer = ({ items }) => {
+
+  //generate array using number
+
+  const ArrayItems = Array.from({ length: items }, (_, i) => i);
+
+
   return (
     <div className={styles.Container}>
-      <div className={styles.Item}>
-        <div className={styles.Images}>hello</div>
-      </div>
-      <div className={styles.Item}>
-        <div className={styles.Images}></div>
-      </div>
+      {ArrayItems.map((item, index) => (
+        <div className={styles.Item}>
+          <div className={styles.Images}></div>
+        </div>
+      ))
+      }
 
-      <div className={styles.Item}>
-        <div className={styles.Images}></div>
-      </div>
-
-      <div className={styles.Item}>
-        <div className={styles.Images}></div>
-      </div>
-
-      <div className={styles.Item}>
-        <div className={styles.Images}></div>
-      </div>
-
-      <div className={styles.Item}>
-        <div className={styles.Images}></div>
-      </div>
     </div>
   )
 }

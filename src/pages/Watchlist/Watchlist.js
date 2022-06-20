@@ -19,7 +19,7 @@ const Watchlist = (props) => {
     }
 
     const addItemToWatchList = (id) => {
-        console.log("add to list")
+
         props.addItemToWatched(id);
     }
 

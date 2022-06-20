@@ -56,12 +56,12 @@ const Search = (props) => {
 
         })
             .catch(err => {
-                console.log(err);
+
                 setLoading(false)
             })
     }
 
-    console.log(items)
+
 
 
     const details = (

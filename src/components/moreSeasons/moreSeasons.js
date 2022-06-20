@@ -32,21 +32,21 @@ const MoreSeasons = (props) => {
     const [items, setItems] = useState([])
     const collectionURL = props.collectionId ? `/3/collection/${props.collectionId}` : null;
     useEffect(() => {
-        if(props.collectionId){
+        if (props.collectionId) {
             axios.get(collectionURL)
-            .then(res=> {
-                setItems(res.data.parts);
-            })
-            .catch(err=>{
-                console.log("err")
-            })
+                .then(res => {
+                    setItems(res.data.parts);
+                })
+                .catch(err => {
+
+                })
         } else {
             setItems(props.data)
         }
     }, [])
     return (
         <div className={styles.TypeHolder}>
-            <p className={styles.seasonHeading}>{items.length >0 && (props.rowTitle ? props.rowTitle + ' Seasons' : 'More Parts')}</p>
+            <p className={styles.seasonHeading}>{items.length > 0 && (props.rowTitle ? props.rowTitle + ' Seasons' : 'More Parts')}</p>
             <Carousel
                 swipeable={true}
                 draggable={false}
@@ -59,9 +59,9 @@ const MoreSeasons = (props) => {
                 containerClass="carousel-container"
                 removeArrowOnDeviceType={["tablet", "mobile"]}
                 itemClass="carousel-item-padding-50-px">
-                {items.map(item=> {
-                    return <RelatedItem key={item.id} details={item} seasonId={props.seasonId} type={params.type}/>
-                    })
+                {items.map(item => {
+                    return <RelatedItem key={item.id} details={item} seasonId={props.seasonId} type={params.type} />
+                })
                 }
             </Carousel>
         </div>

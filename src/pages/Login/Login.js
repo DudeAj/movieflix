@@ -37,9 +37,9 @@ const Login = (props) => {
         email: email,
         password: password,
       });
-    
+
       if (user.data.status) {
-        
+
         authCtx.login(user.data.token, user.data.result.name, user.data.result.email);
         props.login(user.data.token);
         setLoading(false);
@@ -50,7 +50,7 @@ const Login = (props) => {
       } else {
         setLoading(false);
         toast.warn(user.data.message);
-        console.log(user.data)
+
       }
     }
     catch (error) {

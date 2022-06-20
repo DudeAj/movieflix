@@ -27,7 +27,7 @@ export const getItem = (link) => {
         dispatch(itemLoadingStart());
         axios.get(link)
             .then(res => {
-                // console.log(res.data)
+                //  
                 dispatch(setItems(res.data))
             })
             .catch(err => {

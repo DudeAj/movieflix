@@ -17,7 +17,7 @@ const Header = (props) => {
             <div className={header.submenuContainer}>
                 <div className={header.Left}>
                     <div className={header.logo}>
-                        <img src={Logo} alt="image" />
+                        <img src={Logo} alt="image" onClick={() => navigate('/')} />
                     </div>
                     <div className={header.MenuContainer}>
                         <ul>
@@ -35,7 +35,7 @@ const Header = (props) => {
                     <Search />
                 </div>
                 <div className={header.ProfileDetails}>
-                    { authCtx.isLoggedin ? <button onClick={() => navigate('/logout')}>Logout</button> : <button onClick={() => navigate('/login')}>SignIn</button>}
+                    {authCtx.isLoggedin ? <button onClick={() => navigate('/logout')}>Logout</button> : <button onClick={() => navigate('/login')}>SignIn</button>}
                     <MenuIcon className={header.Menuicon} />
                 </div>
             </div>

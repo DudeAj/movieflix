@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     const token = req.headers['auth-token'];
 
     if (!token) {
-        console.log('token Not Found', token)
+
         next(new AppErrr("token Not Found", 404))
     }
     else {

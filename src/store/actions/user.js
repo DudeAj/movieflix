@@ -14,7 +14,7 @@ export const getCountry = () => {
             let info = response.data;
             dispatch(setCountry(info.country_code))
         }).catch((error) => {
-            console.log(error);
+
         });
     }
 }

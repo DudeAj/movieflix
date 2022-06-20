@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 /package-lock.json
-
+backend
 /backend/node_modules
 /backend/package-lock.json
 

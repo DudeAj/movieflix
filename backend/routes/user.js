@@ -82,7 +82,7 @@ router.post('/register', async (req, res, next) => {
 
 router.post('/get-user', auth, async (req, res, next) => {
     const { tokeninfo } = req;
-    //console.log("get user hit")
+    // 
     UserModel.findOne({ _id: tokeninfo.id }, async (err, user) => {
         if (err)
             next(new AppError('Unable to Fetch Data', 404))

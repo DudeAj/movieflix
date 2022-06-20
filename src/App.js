@@ -50,7 +50,7 @@ const App = (props) => {
     <div>
 
       <div className="App">
-        {/* <ToastContainer autoClose={2000} /> */}
+        <ToastContainer autoClose={2000} />
         {props.backdropState && <Backdrop />}
         <Routes>
           <Route path='/' element={<Layout />} >

@@ -26,7 +26,7 @@ export const fetchWatchList = () => {
             }
         }
         catch (err) {
-            console.log(err)
+
         }
     }
 }
@@ -41,7 +41,7 @@ export const fetchWatched = () => {
             }
         }
         catch (err) {
-            console.log(err)
+
         }
     }
 }
@@ -57,7 +57,7 @@ export const AddToWatched = (id) => {
 
         }
         catch (error) {
-            console.log(error)
+
         }
     }
 }
@@ -74,7 +74,7 @@ export const deleteItem = (id) => {
 
         }
         catch (error) {
-            console.log(error)
+
         }
     }
 }

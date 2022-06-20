@@ -4,7 +4,7 @@ import SearchItem from './SearchItem/searchItem';
 import { useNavigate } from 'react-router-dom';
 
 const SearchArea = (props) => {
-    console.log(props.items.length)
+
     const [movies, setMovies] = useState([]);
     const [series, setSeries] = useState([]);
 
@@ -24,9 +24,9 @@ const SearchArea = (props) => {
         setMovies(mv.slice(0, 4));
     }, [])
 
-    console.log("Movies", movies)
-    console.log("Series", series)
-    console.log("All Items", props.items)
+
+
+
 
     return (
         <div className={styles.SearchAreaContainer}>

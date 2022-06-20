@@ -1,19 +1,38 @@
 .Container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
-    
-   
+  display: grid;
+  width: 100%;
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 }
 
 .Container .Item {
+  height: 100%;
+  width: 0px;
+  animation: fullView 0.5s forwards linear;
+  animation: shimmer 2s infinite;
+  background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+  background-size: 1000px 100%;
+}
+
+@keyframes fullView {
+  100% {
     width: 100%;
-    height: 100%;
-    padding: 5px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
 .Container .Item .Images {
-    width: 100%;
-    height: 280px;
-    background-color: #f5f5f5;
+  border-radius: 5px;
+  width: 151px;
+  margin: 5px;
+  height: 227px;
+  background-color: #f5f5f5;
 }

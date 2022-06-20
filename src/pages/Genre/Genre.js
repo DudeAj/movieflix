@@ -88,7 +88,7 @@ const Genre = (props) => {
             setSelectedGenre(latestGenre);
         }
         else {
-            console.log("Clicked: " + id);
+
             const latestGenre = [...selectedGenre, id];
             setSelectedGenre(latestGenre);
         }
@@ -150,7 +150,7 @@ const Genre = (props) => {
                         }}
                     >
                         <div className={styles.popupforRelease}>
-                            <div className='row'>
+                            <div className={styles.row}>
                                 <span className='col-6 text-start'>1900</span>
                                 <span className='col-6 text-end'>{new Date().getFullYear()}</span>
                             </div>

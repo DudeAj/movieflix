@@ -25,11 +25,11 @@ const Popular = (props) => {
         <div className={styles.container}>
             <h3 className={styles.Heading}>Popular Movies</h3>
 
-            <MovieItemShimmer/>
-            {/* <div className={styles.DataContainer}>
+            {/* <MovieItemShimmer items={22} /> */}
+            <div className={styles.DataContainer}>
                 {props.MovieData.map((item, index) => <MovieItem key={index} data={item} />)
                 }
-            </div> */}
+            </div>
             <LoadMore clicked={() => setPage(Page + 1)} />
         </div>
     )

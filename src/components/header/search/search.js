@@ -19,14 +19,15 @@ const Search = (props) => {
       setLoading(true);
       const query = e.target.value;
       const searchUrl = `/3/search/multi?query=${query}&page=1&include_adult=false&region=IN`;
+
       axios.get(searchUrl)
         .then((res) => {
-          //console.log(res.data)
+          // 
           setResult(res.data.results)
           setLoading(false);
         })
         .catch(err => {
-          console.log(err)
+
           setLoading(false);
         })
     }

@@ -39,7 +39,7 @@ const Cast = (props) => {
                 setCast(res.data.cast)
             })
             .catch(err => {
-                console.log(err)
+
             })
     }, [])
     return (

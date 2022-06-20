@@ -11,7 +11,7 @@ const MovieItem = (props) => {
     const imgBaseURL = "https://www.themoviedb.org/t/p/w220_and_h330_face";
 
     const deleteContent = () => {
-        console.log("delete")
+
         props.deleteItem(props.data.itemId);
     }
 
@@ -27,10 +27,10 @@ const MovieItem = (props) => {
             <div className={styles.ImageHolder} onClick={sendDetails}>
                 <img src={imgBaseURL + props.data.poster} alt='not Loaded' />
             </div>
-            
-            <Delete className={styles.icon} onClick={deleteContent}/>
-            <Check className={styles.checkIcon} onClick={addToWatched}/>
-            
+
+            <Delete className={styles.icon} onClick={deleteContent} />
+            <Check className={styles.checkIcon} onClick={addToWatched} />
+
         </div>
     )
 }
