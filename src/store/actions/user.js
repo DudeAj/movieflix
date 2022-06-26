@@ -26,6 +26,13 @@ export const setBackrop = (backdropState) => {
     }
 }
 
+export const setSigninPopup = (value) => {
+    return {
+        type: actionTypes.ENABLE_SIGNIN,
+        value: value
+    }
+}
+
 export const updateCountry = (code) => {
     return dispatch => {
         dispatch(setCountry(code))

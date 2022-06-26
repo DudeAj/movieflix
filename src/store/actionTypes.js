@@ -25,10 +25,10 @@ export const ALL_PROVIDERS = 'ALL_PROVIDERS';
 export const SET_ITEM = 'SET_ITEM';
 export const ITEM_LOADING_START = 'ITEM_LOADING_START';
 export const ITEM_ERROR = 'ITEM_ERROR';
-
 export const SET_EPISODE = 'SET_EPISODE';
 
 export const ENABLE_BACKDROP = 'ENABLE_BACKDROP';
+export const ENABLE_SIGNIN = "ENABLE_SIGNIN";
 
 
 //for setting up genre

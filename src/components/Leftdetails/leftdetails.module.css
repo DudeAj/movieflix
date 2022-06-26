@@ -1,64 +1,63 @@
 .Left {
-    width: 30%;
-    padding: 10px;
-    
+  width: 30%;
+  padding: 10px;
 }
 
 .Left img {
-    width: 100%;
-    display:block;
-    object-fit: contain;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .imgBottom {
-    background-color: #333;
-    display: flex;
-    width: 100%;
-    text-align: center;
-    column-gap: 5px;
-    align-content: center;
-    justify-content: center;
-    padding: 10px;
-    box-sizing: border-box;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+  background-color: #333;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  column-gap: 5px;
+  align-content: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.imgBottom div  {
-    padding: 10px 0;
-    width: 100%;
-    font-size: 9px;
-    color: gray;
+.imgBottom div {
+  padding: 10px 0;
+  width: 100%;
+  font-size: 9px;
+  color: gray;
 }
 .imgBottom div:hover {
-    color: #fff;
-    cursor: pointer;
+  color: #fff;
+  cursor: pointer;
 }
 .icon {
-    font-size: 18px;
+  font-size: 18px;
 }
 .imgBottom div p {
-    margin: 0;
-    font-size: 11px;
+  margin: 0;
+  font-size: 11px;
 }
 
 .btn {
-    width: 100%;
-    margin: 10px 0;
-    font-size: 15px;
-    padding: 10px;
-    background-color: #333;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 15px;
+  padding: 10px;
+  background-color: #333;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 @media (max-width: 480px) {
-    .Left {
-        width: 100%;
-        padding: 10px;
-    }
-
+  .Left {
+    width: 100%;
+    padding: 10px;
+  }
 }

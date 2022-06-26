@@ -45,7 +45,7 @@ const Leftdetails = (props) => {
             <div className={styles.imgBottom}>
 
                 {!found
-                    ? <div onClick={addWatchList}>
+                    ? <div onClick={authCtx.isLoggedin ? addWatchList : () => props.signinPopup(true)}>
                         <BookmarkIcon className={styles.icon} />
                         <p>Add To Watchlist</p>
                     </div>
@@ -60,7 +60,7 @@ const Leftdetails = (props) => {
                 </div>
             </div>
 
-            {!authCtx.isLoggedin && <button className={styles.btn} onClick={() => navigate("/login")}>Sign In To sync Watchlist</button>}
+            {!authCtx.isLoggedin && <button className={styles.btn} onClick={() => props.signinPopup(true)}>Sign In To sync Watchlist</button>}
             <hr style={{ borderColor: 'grey', marginTop: "10px" }} />
 
             <Moviebasic genres={props.item.genres} runtime={props.item.episode_run_time || props.item.runtime} rating={props.item.vote_average} />
@@ -79,7 +79,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadWatchList: (token) => dispatch(actions.fetchWatchList(token))
+        loadWatchList: (token) => dispatch(actions.fetchWatchList(token)),
+        signinPopup: (type) => dispatch(actions.setSigninPopup(type))
     }
 }
 

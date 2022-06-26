@@ -2,6 +2,7 @@ import * as actionTypes from '../actionTypes';
 import axios from 'axios';
 import customeReq from '../../utils/customReq';
 import { toast } from 'react-toastify';
+import { startLoading } from './series';
 
 const setWatchList = (data) => {
     return {
@@ -19,29 +20,33 @@ const setWatched = (data) => {
 
 export const fetchWatchList = () => {
     return async dispatch => {
+        dispatch(startLoading(true))
         try {
             const watchList = await customeReq.get('watch/watchlist');
             if (watchList.data.status) {
                 dispatch(setWatchList(watchList.data.results))
             }
+            dispatch(startLoading(false))
         }
         catch (err) {
-
+            dispatch(startLoading(false))
         }
     }
 }
 
 export const fetchWatched = () => {
     return async dispatch => {
+        dispatch(startLoading(true))
         try {
             const watched = await customeReq.get('watch/watched');
 
             if (watched.data.status) {
                 dispatch(setWatched(watched.data.results))
             }
+            dispatch(startLoading(false))
         }
         catch (err) {
-
+            dispatch(startLoading(false))
         }
     }
 }
@@ -67,7 +72,6 @@ export const deleteItem = (id) => {
         try {
             const postBody = { itemId: id };
             const deletedItem = await customeReq.post('watch/delete', postBody);
-
             dispatch(fetchWatchList())
             dispatch(fetchWatched())
 
