@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './login.module.css';
 import { connect } from 'react-redux';
 import { setLoginAsync } from '../../store/actions';
@@ -39,13 +39,11 @@ const Login = (props) => {
       });
 
       if (user.data.status) {
-
         authCtx.login(user.data.token, user.data.result.name, user.data.result.email);
         props.login(user.data.token);
         setLoading(false);
         toast.success("Login Successful");
         setRedirectToReferrer(true);
-        navigate('/');
 
       } else {
         setLoading(false);
@@ -58,13 +56,12 @@ const Login = (props) => {
       setLoading(false);
 
     }
-
-
   }
-
-  if (redirectToReferrer === true) {
-    return <Navigate to={state || '/'} />
-  };
+  useEffect(() => {
+    if (redirectToReferrer === true) {
+      return <Navigate to={state || '/'} />
+    };
+  }, [redirectToReferrer])
 
   const handleRegister = async (e) => {
     setLoading(true)

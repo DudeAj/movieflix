@@ -10,10 +10,10 @@ const latestMovie = "/3/discover/movie?include_adult=false";
 const latestTv = "/3/discover/tv?include_adult=false";
 
 
-const StartLoading = () => {
+export const startLoading = (value) => {
     return {
         type: actionTypes.START_LOADING,
-        payload: true
+        payload: value
     }
 }
 
@@ -26,16 +26,16 @@ export const setDiscover = (data) => {
 
 export const getDiscover = (Type, Page, filterYear, filterGenre, selectedProvider) => {
     return dispatch => {
-        StartLoading(true);
+        startLoading(true);
 
         axios.get(`3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`).then(response => {
             // 
             dispatch(setDiscover(response.data.results))
-            StartLoading(false);
+            startLoading(false);
         })
             .catch(error => {
 
-                StartLoading(false);
+                startLoading(false);
             })
     }
 }

@@ -6,7 +6,7 @@ export {
     getLatestTv,
     getGenre,
     getDiscover,
-   
+
 } from './series'
 
 export {
@@ -19,7 +19,8 @@ export {
 export {
     getCountry,
     updateCountry,
-    setBackrop
+    setBackrop,
+    setSigninPopup
 } from './user';
 
 export {

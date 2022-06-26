@@ -5,6 +5,7 @@ import { fetchWatchList, AddToWatched, deleteItem } from '../../store/actions';
 import styles from './Watchlist.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import AuthContext from '../../context/auth';
+import Spinner from '../../components/Spinner/spinner';
 
 const Watchlist = (props) => {
     const { pathname } = useLocation();
@@ -14,20 +15,21 @@ const Watchlist = (props) => {
         props.loadWatchlist();
     }, [authCtx]);
 
-    if (!authCtx.isLoggedin) {
-        return <Navigate to={"/login"} state={pathname} />
-    }
-
     const addItemToWatchList = (id) => {
 
         props.addItemToWatched(id);
     }
+
+    // if (props.loading) {
+    //     return <Spinner />
+    // }
 
     const deleteItem = (id) => {
         props.deleteItem(id);
     }
     return (
         <div className={styles.container}>
+            {props.loading ? <Spinner /> : null}
             <h3 className={styles.Heading}>My Watchlist</h3>
             <div className={styles.MovieContainer}>
                 <div className={styles.DataContainer}>
@@ -44,7 +46,8 @@ const mapStateToProps = (state) => {
     return {
         isLoggedin: state.auth.isLoggedin,
         token: state.auth.userToken,
-        watchlist: state.movie.watchlist
+        watchlist: state.movie.watchlist,
+        loading: state.movie.loading
     }
 }
 
