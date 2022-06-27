@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.b1e37315.css",
-    "main.js": "/static/js/main.69a7cf85.js",
-    "static/js/787.3d7c1801.chunk.js": "/static/js/787.3d7c1801.chunk.js",
-    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
-    "index.html": "/index.html",
-    "main.b1e37315.css.map": "/static/css/main.b1e37315.css.map",
-    "main.69a7cf85.js.map": "/static/js/main.69a7cf85.js.map",
-    "787.3d7c1801.chunk.js.map": "/static/js/787.3d7c1801.chunk.js.map"
+    "main.css": "/movie-flix/static/css/main.5fc9a212.css",
+    "main.js": "/movie-flix/static/js/main.dd9504e6.js",
+    "static/js/787.3d7c1801.chunk.js": "/movie-flix/static/js/787.3d7c1801.chunk.js",
+    "static/media/revicons.eot": "/movie-flix/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/movie-flix/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/movie-flix/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/movie-flix/index.html",
+    "main.5fc9a212.css.map": "/movie-flix/static/css/main.5fc9a212.css.map",
+    "main.dd9504e6.js.map": "/movie-flix/static/js/main.dd9504e6.js.map",
+    "787.3d7c1801.chunk.js.map": "/movie-flix/static/js/787.3d7c1801.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b1e37315.css",
-    "static/js/main.69a7cf85.js"
+    "static/css/main.5fc9a212.css",
+    "static/js/main.dd9504e6.js"
   ]
 }
