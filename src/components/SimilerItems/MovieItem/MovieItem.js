@@ -18,7 +18,7 @@ const MovieItem = (props) => {
     return (
         <div className={styles.Container} onClick={sendDetails}>
             <div className={styles.ImageHolder}>
-                <img src={imgBaseURL + props.data.poster_path || placeHolderImage} />
+                <img src={imgBaseURL + props.data.poster_path || placeHolderImage} alt='poster_path' loading="lazy"/>
             </div>
         </div>
     )

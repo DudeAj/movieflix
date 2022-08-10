@@ -1,18 +1,22 @@
 {
   "files": {
-    "main.css": "/movie-flix/static/css/main.5fc9a212.css",
-    "main.js": "/movie-flix/static/js/main.dd9504e6.js",
-    "static/js/787.3d7c1801.chunk.js": "/movie-flix/static/js/787.3d7c1801.chunk.js",
-    "static/media/revicons.eot": "/movie-flix/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/movie-flix/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/movie-flix/static/media/revicons.e8746a624ed098489406.woff",
-    "index.html": "/movie-flix/index.html",
-    "main.5fc9a212.css.map": "/movie-flix/static/css/main.5fc9a212.css.map",
-    "main.dd9504e6.js.map": "/movie-flix/static/js/main.dd9504e6.js.map",
-    "787.3d7c1801.chunk.js.map": "/movie-flix/static/js/787.3d7c1801.chunk.js.map"
+    "main.css": "/movieflix/static/css/main.1ab1dd82.css",
+    "main.js": "/movieflix/static/js/main.ec0bc604.js",
+    "static/js/787.3d7c1801.chunk.js": "/movieflix/static/js/787.3d7c1801.chunk.js",
+    "static/media/revicons.eot": "/movieflix/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/movieflix/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/movieflix/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/slick.svg": "/movieflix/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/movieflix/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/movieflix/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/movieflix/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/movieflix/index.html",
+    "main.1ab1dd82.css.map": "/movieflix/static/css/main.1ab1dd82.css.map",
+    "main.ec0bc604.js.map": "/movieflix/static/js/main.ec0bc604.js.map",
+    "787.3d7c1801.chunk.js.map": "/movieflix/static/js/787.3d7c1801.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fc9a212.css",
-    "static/js/main.dd9504e6.js"
+    "static/css/main.1ab1dd82.css",
+    "static/js/main.ec0bc604.js"
   ]
 }

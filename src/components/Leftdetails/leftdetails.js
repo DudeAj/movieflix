@@ -41,7 +41,7 @@ const Leftdetails = (props) => {
 
     return (
         <div className={styles.Left}>
-            {props.item.poster_path ? <img src={imgBaseURL + poster} /> : <img src={placeholderImage} />}
+            {props.item.poster_path ? <img src={imgBaseURL + poster} alt="poster" loading="lazy"/> : <img src={placeholderImage} alt="placeholder" loading="lazy"/>}
             <div className={styles.imgBottom}>
 
                 {!found

@@ -46,8 +46,6 @@ const Genre = (props) => {
 
     const openGenre = Boolean(anchorElGenre);
 
-
-
     useEffect(() => {
         let filterGenre = "";
         let filterYear = "";

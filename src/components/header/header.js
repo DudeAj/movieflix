@@ -27,7 +27,8 @@ const Header = (props) => {
             <div className={header.submenuContainer}>
                 <div className={header.Left}>
                     <div className={header.logo}>
-                        <img src={Logo} alt="image" onClick={() => navigate('/')} />
+                        
+                        <img src={Logo} alt="logo" onClick={() => navigate('/')} loading="lazy" />
                     </div>
                     <div className={header.MenuContainer}>
                         <ul>
@@ -50,7 +51,7 @@ const Header = (props) => {
                 </div>
                 <div className={header.ProfileDetails}>
                     {authCtx.isLoggedin ? <button onClick={() => navigate('/logout')}>Logout</button> : <button onClick={() => props.openPopup(true)}>SignIn</button>}
-                    <MenuIcon className={header.Menuicon} />
+                    {/* <MenuIcon className={header.Menuicon} /> */}
                 </div>
             </div>
             <DialogComp open={props.signinPopup} handleClose={() => props.openPopup(false)}>

@@ -16,7 +16,7 @@ const SearchItem = (props) => {
     return (
         <div className={styles.searchItemContainer} onClick={ShowDetails}>
             <div className={styles.imgContainer}>
-               {props.data.poster_path ? <img src={imagePath+ props.data.poster_path}/> : <img src={placeholderImage}/> }
+               {props.data.poster_path ? <img src={imagePath+ props.data.poster_path} loading="lazy" alt='poster_path'/> : <img src={placeholderImage} loading="lazy" alt='placeholder'/> }
             </div>
             <div className={styles.infoContainer}>
                 <p className={styles.Heading}>{props.data.title || props.data.name}</p>

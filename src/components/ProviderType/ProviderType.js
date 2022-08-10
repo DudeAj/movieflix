@@ -10,7 +10,7 @@ const ProviderType = (props) => {
         <span>Stream</span>
         <div className={styles.platformContainer}>
             {props.items.map(pro => {
-                return <div key={pro.provider_id} className={styles.provider}><img src={originalURL + pro.logo_path} />{/* <p>{pro.provider_name}</p> */}</div>
+                return <div key={pro.provider_id} className={styles.provider}><img src={originalURL + pro.logo_path} loading="lazy" alt="logo_path"/>{/* <p>{pro.provider_name}</p> */}</div>
             })}
         </div>
     </div>

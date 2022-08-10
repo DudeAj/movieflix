@@ -25,8 +25,8 @@ const MovieItem = (props) => {
         <div className={styles.Container} onClick={sendDetails}>
             <div className={styles.ImageHolder}>
                 {props.details.poster_path
-                    ? <img src={imgBaseURL + props.details.poster_path} alt='not Loaded' />
-                    : <img src={placeHolderImage} alt='not Loaded' style={{ objectFit: 'cover' }} />}
+                    ? <img src={imgBaseURL + props.details.poster_path} alt='not Loaded' loading="lazy" />
+                    : <img src={placeHolderImage} alt='not Loaded' style={{ objectFit: 'cover' }} loading="lazy"/>}
             </div>
             <p className={styles.title}>{props.details.name || props.details.title}</p>
         </div>

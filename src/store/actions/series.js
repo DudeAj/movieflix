@@ -28,7 +28,7 @@ export const getDiscover = (Type, Page, filterYear, filterGenre, selectedProvide
     return dispatch => {
         startLoading(true);
 
-        axios.get(`3/discover/${Type}?sort_by=popularity.desc&include_adult=true&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`).then(response => {
+        axios.get(`3/discover/${Type}?sort_by=popularity.desc&include_adult=false&include_video=false&page=${Page}${filterYear}${filterGenre}${selectedProvider}`).then(response => {
             // 
             dispatch(setDiscover(response.data.results))
             startLoading(false);

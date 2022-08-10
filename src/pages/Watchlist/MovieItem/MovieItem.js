@@ -25,7 +25,7 @@ const MovieItem = (props) => {
     return (
         <div className={styles.Container} >
             <div className={styles.ImageHolder} onClick={sendDetails}>
-                <img src={imgBaseURL + props.data.poster} alt='not Loaded' />
+                <img src={imgBaseURL + props.data.poster} alt='not Loaded' loading="lazy" />
             </div>
 
             <Delete className={styles.icon} onClick={deleteContent} />
