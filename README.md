@@ -1,6 +1,11 @@
 ## Live Demo 
 [View App](https://movieflix-one-alpha.vercel.app)
 
+## Login Info
+login account for adding movies/series in watchlist/watched
+email: ajay@gmail.com
+password: 12345678
+
 ## Available Scripts
 
 In the project directory, you can run:
