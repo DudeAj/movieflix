@@ -46,6 +46,10 @@
   border-bottom: 2px solid #b41010;
 }
 
+.providerHolder {
+  padding: 0 20px;
+}
+
 .popupforRelease {
   width: 300px;
   padding: 10px 25px;

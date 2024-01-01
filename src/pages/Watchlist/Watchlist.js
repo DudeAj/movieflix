@@ -6,6 +6,7 @@ import styles from './Watchlist.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import AuthContext from '../../context/auth';
 import Spinner from '../../components/Spinner/spinner';
+import Loader ,{AdvanceLoader}from '../../components/Loader/Loader';
 
 const Watchlist = (props) => {
     const { pathname } = useLocation();
@@ -33,7 +34,7 @@ const Watchlist = (props) => {
             <h3 className={styles.Heading}>My Watchlist</h3>
             <div className={styles.MovieContainer}>
                 <div className={styles.DataContainer}>
-                    {props.watchlist && props.watchlist.map((item) => <MovieItem key={item.id} data={item} addWatched={addItemToWatchList} deleteItem={deleteItem} />)
+                    {props.watchlist && props.watchlist.map((item) => <div className={styles.movieItemContainer}><MovieItem key={item.id} data={item} addWatched={addItemToWatchList} deleteItem={deleteItem} /></div>)
                     }
                 </div>
             </div>

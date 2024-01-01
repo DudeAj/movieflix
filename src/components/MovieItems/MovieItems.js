@@ -4,31 +4,44 @@ import "react-multi-carousel/lib/styles.css";
 import MovieItem from './MovieItem/MovieItem';
 import styles from './MovieItems.module.css';
 import axios from 'axios';
-
-
-const responsive = {
-    superLargeDesktop: {
-        // the naming can be any, depends on you.
-        breakpoint: { max: 4000, min: 1366 },
-        items: 8
-    },
-    desktop: {
-        breakpoint: { max: 1366, min: 1024 },
-        items: 5
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 700 },
-        items: 4
-    },
-    mobile: {
-        breakpoint: { max: 700, min: 0 },
-        items: 3
-    }
-};
+import Slider from 'react-slick';
 
 const MovieItems = (props) => {
 
     const [items, setItems] = useState([]);
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 8,
+        slidesToScroll: 8,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 8,
+                slidesToScroll: 8,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+              }
+            }
+          ]
+      };
 
 
     useEffect(() => {
@@ -46,7 +59,7 @@ const MovieItems = (props) => {
         <div className={styles.TypeHolder}>
             <p>{props.rowTitle}</p>
 
-            <Carousel
+            {/* <Carousel
                 swipeable={true}
                 draggable={false}
                 responsive={responsive}
@@ -58,12 +71,15 @@ const MovieItems = (props) => {
                 transitionDuration={500}
                 containerClass="carousel-container"
                 removeArrowOnDeviceType={["tablet", "mobile"]}
-                itemClass="carousel-item-padding-40-px">
+                itemClass="carousel-item-padding-40-px"> */}
+                <Slider {...settings}>
+
                 {items.map(item => {
                     return <MovieItem key={item.id} data={item} />
                 })}
+                </Slider>
 
-            </Carousel>
+            {/* </Carousel> */}
         </div>
     )
 }

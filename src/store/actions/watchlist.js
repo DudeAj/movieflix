@@ -54,15 +54,16 @@ export const fetchWatched = () => {
 export const AddToWatched = (id) => {
     return async dispatch => {
         try {
+            dispatch(startLoading(true))
             const postBody = { itemId: id };
             const watchList = await customeReq.post('watch/add-watched', postBody);
 
             dispatch(fetchWatchList())
-
+            dispatch(startLoading(false))
 
         }
         catch (error) {
-
+            dispatch(startLoading(false))
         }
     }
 }
@@ -70,14 +71,17 @@ export const AddToWatched = (id) => {
 export const deleteItem = (id) => {
     return async dispatch => {
         try {
+            dispatch(startLoading(true))
             const postBody = { itemId: id };
             const deletedItem = await customeReq.post('watch/delete', postBody);
             dispatch(fetchWatchList())
             dispatch(fetchWatched())
+            dispatch(startLoading(false))
 
 
         }
         catch (error) {
+            dispatch(startLoading(false))
 
         }
     }

@@ -9,6 +9,7 @@
 
 .DataHolder {
     margin-top: 10px;
+    padding: 0 20px;
 }
 
 .peopleholder img {
@@ -21,7 +22,7 @@
 
 .peopleholder .Name {
     padding: 5px;
-    font-size: 13px;
+    font-size: 12px;
     display: block;
     position: absolute;
     z-index: 5;

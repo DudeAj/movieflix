@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import PagesContainer from './containers/PagesContainer/PagesContainer';
 import Detailspage from './pages/DetailsPage/detailspage';
 import Login from './pages/Login/Login';
