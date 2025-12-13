@@ -1,45 +1,43 @@
 .backgroundImage {
-    position: relative;
-    scroll-behavior: smooth;
+  position: relative;
+  scroll-behavior: smooth;
 }
 
 .pageHolder {
-    width: 100%;
-    box-sizing: border-box;
-    background-size: 100%; 
-    background-repeat: no-repeat;
+  width: 100%;
+  box-sizing: border-box;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .backdropImg {
-    object-fit: contain;
-    display: block;
-    z-index: -1;
-    width: 100%;
+  object-fit: contain;
+  display: block;
+  z-index: -1;
+  width: 100%;
 }
 
 .dataSet {
-    background-image: linear-gradient(#00000000, #060d17, #060d17);
-    box-sizing: border-box;
-    width: 100%;
-    padding: 400px 250px 0 250px;
+  background-image: linear-gradient(#00000000, #060d17, #060d17);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 400px 15% 0 15%;
 }
 
 .container {
-    background-color: #060d17;
-    width: 100%;
-    border-radius: 10px;
-    padding: 5px;
-    display: flex;
+  background-color: #060d17;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
 }
-
 
 @media (max-width: 480px) {
-    .dataSet {
-        padding: 200px 5px 0 5px;
-    }
+  .dataSet {
+    padding: 200px 5px 0 5px;
+  }
 
-    .container {
-        display: block;
-    }
+  .container {
+    display: block;
+  }
 }
-
