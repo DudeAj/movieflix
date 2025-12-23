@@ -10,6 +10,7 @@ import AuthContext from '../../context/auth';
 import DialogComp from '../UI/Dialog/Dialog';
 import Login from '../../pages/Login/Login';
 import { setSigninPopup } from '../../store/actions';
+
 const Header = (props) => {
     const navigate = useNavigate();
 

@@ -11,6 +11,19 @@ import MovieSkeleton from "../Skeleton/MovieSkeleton";
 
 const MovieItems = (props) => {
   const { data, error, isLoading } = useSWR(props.link, axiosFetcher);
+
+  // useEffect(() => {
+  //       axios.get(props.link)
+  //           .then(res => {
+  //               const result = res.data.results ? res.data.results : res.data.parts;
+  //               setItems(result);
+  //           })
+  //           .catch(err => {
+  //             console.log(err);
+  //           })
+  // }, [])
+
+
   const settings = {
     dots: true,
     infinite: true,
