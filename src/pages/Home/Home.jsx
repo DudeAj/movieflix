@@ -24,7 +24,7 @@ const Home = () => {
         rowTitle="Romance"
         link={latestTv + "&sort_by=popularity.desc&with_genres=10749"}
       />
-      <MovieItems rowTitle="Star Wars" link={collection} />
+      {/* <MovieItems rowTitle="Star Wars" link={collection} /> */}
     </div>
   );
   return items;
